@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="cubiio2-ui-revision" content="1.8.6" />
-    <meta name="application-version" content="1.8.6" />
-    <meta name="cubiio2-ui-build" content="1.8.6" />
+    <meta name="cubiio2-ui-revision" content="1.9.0" />
+    <meta name="application-version" content="1.9.0" />
+    <meta name="cubiio2-ui-build" content="1.9.0" />
     <meta name="cubiio2-sd-webapp" content="1">
     <meta name="description" content="Cubiio2 single-page control application" />
     <link
@@ -3906,7 +3906,7 @@
           "待偵測": [ "待偵測", "Not checked" ],
           "待命": [ "待命", "Idle" ],
           "待命時完全釋放 USB": [ "待命時完全釋放 USB", "Release USB port when idle" ],
-          "忘記 Wi‑Fi": [ "忘記 Wi‑Fi", "Forget Wi-Fi" ],
+          "忘記 Wi‑Fi": [ "重設 Wi‑Fi", "Reset Wi-Fi" ],
           "找不到裝置的 LAN 位址。": [ "找不到裝置的 LAN 位址。", "Device LAN address not found." ],
           "掃描 2.4 GHz Wi‑Fi": [ "掃描 2.4 GHz Wi‑Fi", "Scan 2.4 GHz Wi-Fi" ],
           "控制連線已中斷，機器會繼續目前工作。": [ "控制連線已中斷，機器會繼續目前工作。", "Control disconnected. The machine continues its current job." ],
@@ -3990,7 +3990,7 @@
           "連線狀態：": [ "連線狀態：", "Connection: " ],
           "連續移動": [ "連續移動", "Continuous motion" ],
           "選取 SD 卡內檔案": [ "選取 SD 卡內檔案", "Select SD card file" ],
-          "選擇 USB 或 LAN": [ "選擇 USB 或 LAN", "Choose USB or LAN" ],
+          "選擇 USB 或 LAN": [ "選擇 USB、LAN 或 AP", "Choose USB, LAN or AP" ],
           "選擇機器": [ "選擇機器", "Select machine" ],
           "錯誤": [ "錯誤", "Error" ],
           "門狀態未知": [ "門狀態未知", "Lid status unknown" ],
@@ -4236,7 +4236,60 @@
           projectOutputNameInvalid: [ "請輸入有效的檔名。", "Enter a valid filename." ],
           projectSdNameLength: [ "SD 檔名含後綴及副檔名，最多 64 個 UTF-8 位元組。", "SD filenames, including the suffix and extension, are limited to 64 UTF-8 bytes." ],
           projectOverwriteSdFile: [ "SD 卡已有同名檔案。要覆蓋嗎？", "A file with this name already exists on the SD card. Replace it?" ],
-          projectDownloadedFile: [ "已下載", "Downloaded" ]
+          projectDownloadedFile: [ "已下載", "Downloaded" ],
+          apStart: [ "開啟直連熱點", "Start direct hotspot" ],
+          apStop: [ "關閉熱點", "Stop hotspot" ],
+          apOpen: [ "免密碼", "No password" ],
+          apHelp: [ "無 LAN 時自動開啟 Cubiio2-[四碼序號] 免密碼熱點；連上後開啟 http://192.168.4.1 或 http://cubiio2-[四碼序號].local。", "When LAN is unavailable, join the open Cubiio2-[4-character serial] hotspot, then open http://192.168.4.1 or http://cubiio2-[4-character serial].local." ],
+          toolClose: [ "關閉工具", "Close tool" ],
+          projectShape: [ "圖形", "Shapes" ],
+          projectBrush: [ "畫筆", "Pen" ],
+          shapeKind: [ "基本圖形", "Basic shape" ],
+          shapeEllipse: [ "圓／橢圓", "Circle / ellipse" ],
+          shapePolygon: [ "多角形", "Polygon" ],
+          shapeRectangle: [ "矩形", "Rectangle" ],
+          shapeSides: [ "邊數（3–64）", "Sides (3–64)" ],
+          shapeAdd: [ "加入圖形", "Add shape" ],
+          shapeInvalid: [ "尺寸需為 1–1000 mm，多角形邊數需為 3–64 的整數。", "Dimensions must be 1–1000 mm; polygons need 3–64 integer sides." ],
+          brushHelp: [ "用手指、觸控筆或滑鼠畫線。每筆為獨立向量圖層；雙指可縮放，Esc 結束畫筆。", "Draw with a finger, stylus or mouse. Each stroke is a vector layer. Pinch to zoom; Esc exits the pen." ],
+          brushStart: [ "開始畫筆", "Start drawing" ],
+          brushStop: [ "結束畫筆", "Finish drawing" ],
+          sdFolders: [ "SD /uploads2 與舊根目錄 · ", "SD /uploads2 and legacy root · " ],
+          "此瀏覽器不支援 USB 韌體相容模式。請在電腦使用支援 Web Serial 的瀏覽器。": [ "此瀏覽器不支援 USB 韌體相容模式。請在電腦使用支援 Web Serial 的瀏覽器。", "USB firmware compatibility mode requires a desktop browser with Web Serial support." ],
+          "相容更新：請確認機台已停止加工。將只寫入 app 分割區，保留 SD 與設定。原版韌體可能不支援新版通訊；之後請用 USB 相容模式升級返回。": [ "相容更新：請確認機台已停止加工。將只寫入 app 分割區，保留 SD 與設定。原版韌體可能不支援新版通訊；之後請用 USB 相容模式升級返回。", "Compatibility update: ensure the machine has stopped. Only the app is written; SD and settings are preserved. Legacy firmware may lack the new protocol. Use USB compatibility mode to upgrade again." ],
+          "更新已取消。": [ "更新已取消。", "Update cancelled." ],
+          "映像寫入與 MD5 驗證完成；原版韌體請使用 USB 相容模式重新升級。": [ "映像寫入與 MD5 驗證完成；原版韌體請使用 USB 相容模式重新升級。", "Image written and MD5 verified. Use USB compatibility mode to upgrade legacy firmware again." ],
+          FIRMWARE_IMAGE_HASH: [ "韌體 SHA-256 不符，檔案可能損壞，請重新取得。", "Firmware SHA-256 does not match. Obtain a fresh copy." ],
+          SD_LEGACY_UPDATE_REQUIRED: [ "目前機台的 SD 更新器不支援原版映像，請先用 USB 安裝本次相容更新版韌體。", "The installed SD updater cannot accept legacy images. Install this compatibility firmware over USB first." ],
+          "app 已寫入並完成 MD5 驗證，但未取得新版通訊回覆；請確認機台已啟動。": [ "app 已寫入並完成 MD5 驗證，但未取得新版通訊回覆；請確認機台已啟動。", "The app was written and MD5 verified, but the new protocol did not respond. Check that the machine started." ],
+          "確認更新": [ "確認更新", "Confirm update" ],
+          usbCompatibilityHint: [ "USB 相容更新：不需先建立機台通訊連線。", "USB compatibility update: no machine protocol connection is required first." ],
+          SD_UPDATE_USE_LEGACY: [ "此映像需使用「SD／OTA 降回原版」按鈕。", "Use Restore original via SD / OTA for this image." ],
+          sdViaUsbHint: [ "透過目前 USB 連線啟動 SD／OTA，機台自行完成更新。", "Start SD / OTA over the current USB connection; the machine completes the update." ],
+          SD_UPDATE_BOOT_READBACK_FAILED: [ "啟動設定驗證失敗，已恢復目前韌體，機台不會自動重啟。", "Boot selection verification failed. The current firmware was restored; the machine will not restart automatically." ],
+          SD_UPDATE_LEGACY_CONFIRM_FAILED: [ "原版啟動設定未完成，已恢復目前韌體，機台不會自動重啟。", "Legacy boot confirmation failed. The current firmware was restored; the machine will not restart automatically." ],
+          SD_UPDATE_BOOT_RECOVERY_REQUIRED: [ "啟動設定無法確認。請保持供電、暫勿重啟，改用 USB 更新恢復。", "Boot selection could not be confirmed. Keep power on, avoid restarting, and recover over USB." ],
+          wifiSetupConnect: [ "先透過 USB、AP 或 LAN 連接機器，再設定 Wi-Fi。", "Connect the machine over USB, AP or LAN, then configure Wi-Fi." ],
+          wifiHandoff: [ "已受理 Wi-Fi 變更；若 LAN 斷線，請在系統 Wi-Fi 加入下列熱點，再開啟網址完成設定：", "Wi-Fi change accepted. If LAN disconnects, join this hotspot in system Wi-Fi, then open the address to continue:" ],
+          apConnection: [ "直連 AP", "Direct AP" ],
+          apFind: [ "搜尋直連機器", "Find joined AP machine" ],
+          apConnectHelp: [ "先在系統 Wi-Fi 加入 Cubiio2-[四碼序號]，再搜尋直連機器。網址為 http://cubiio2-[四碼序號].local 或 http://192.168.4.1。", "First join Cubiio2-[4-character serial] in system Wi-Fi, then find the machine. Open http://cubiio2-[4-character serial].local or http://192.168.4.1." ],
+          localFontEmpty: [ "瀏覽器未提供可用的常見本機字型；仍可使用系統字型或匯入字型檔。", "The browser did not expose common local fonts. Use the system font or import a font file." ],
+          apMachine: [ "直連的 Cubiio2", "Joined Cubiio2 AP" ],
+          apFound: [ "已找到直連機器，請選取後連線。", "Joined AP machine found. Select it to connect." ],
+          apNotFound: [ "尚未找到直連機器。", "No joined AP machine found yet." ],
+          apOnly: [ "AP（LAN 未連線）", "AP (LAN disconnected)" ],
+          wifiReason: [ "斷線原因", "Disconnect reason" ],
+          wifiOpenLan: [ "開啟 LAN 網頁", "Open LAN WebApp" ],
+          wifiLanJoined: [ "LAN 已連線：", "LAN connected:" ],
+          wifiSwitchLan: [ "AP 與 LAN 可同時存在。請將手機切換至相同 LAN，再開啟 LAN 網頁。", "AP and LAN can coexist. Switch your phone to the same LAN, then open the LAN WebApp." ],
+          wifiSwitchLanAuto: [ "請將手機切換至相同 LAN，再開啟 LAN 網頁。手機離開熱點、機台空閒後，直連熱點會自動關閉。", "Switch your phone to the same LAN, then open the LAN WebApp. The automatic hotspot closes when its clients have left and the machine is idle." ],
+          wifiSwitchLanManual: [ "直連熱點是手動啟用，將繼續保留。請將手機切換至相同 LAN，再開啟 LAN 網頁。", "The hotspot was started manually and stays available. Switch your phone to the same LAN, then open the LAN WebApp." ],
+          wifiRetryLan: [ "重試自動連線", "Retry LAN connection" ],
+          wifiAutoLanWaiting: [ "正在自動改連 LAN；AP 將關閉。若手機未自動回到路由器，請將手機切換至相同 Wi-Fi，頁面會繼續嘗試連線。", "Reconnecting over LAN; AP will close. If your phone does not return to the router automatically, switch it to the same Wi-Fi. This page keeps retrying." ],
+          wifiAutoLanConnected: [ "已自動連上同一台機器的 LAN：", "Reconnected to the same machine over LAN:" ],
+          wifiAutoLanFailed: [ "尚未接回 LAN。請將手機切換至機器所在的 Wi-Fi，再按「重試自動連線」或開啟 LAN 網頁。", "LAN is not reachable yet. Switch your phone to the machine’s Wi-Fi, then retry or open the LAN WebApp." ],
+          wifiLanNextOpen: [ "目前頁面已改用 LAN，畫布保留。下次請從下方 LAN 網址開啟；重新開頁前請先儲存作品。", "This page now controls over LAN and keeps your canvas. Use the LAN address next time; save your artwork before reopening." ]
         };
         const bindings = new Map;
         let forced = null;
@@ -4314,10 +4367,13 @@
           "'": "&#39;"
         }[c]));
         let confirmationTail = Promise.resolve();
-        function confirmAction(render) {
+        function confirmAction(render, options = {}) {
           const run = () => new Promise(resolve => {
             const dialog = document.getElementById("c2-confirm-dialog"), message = document.getElementById("c2-confirm-message");
             setUiText(message, typeof render === "function" ? render : () => String(render));
+            const accept = document.getElementById("c2-confirm-accept");
+            accept.dataset.i18n = options.label || "確認刪除";
+            setUiText(accept, () => text(options.label || "確認刪除"));
             dialog.returnValue = "cancel";
             const done = () => {
               dialog.removeEventListener("close", done);
@@ -4362,6 +4418,10 @@
       (() => {
         const core = window.Cubiio2Core, pair = core.pair;
         const reasons = {
+          WIFI_JOIN_START_FAILED: [ "Wi-Fi 驅動未接受連線啟動；AP 保持開啟，請重新掃描後再試。", "The Wi-Fi driver did not accept the connection. AP stays available; scan and retry." ],
+          WIFI_DISCONNECT_TIMEOUT: [ "舊 Wi-Fi 連線尚未停止；AP 保持開啟，請稍後再試。", "The previous Wi-Fi connection did not stop. AP remains available; retry shortly." ],
+          WIFI_CHANGE_ACK_TIMEOUT: [ "網路變更回覆未送達，已保留原設定與連線。請重新連線後再試。", "The network change response was not sent. Existing settings and connection were preserved. Reconnect and retry." ],
+          SD_LAYOUT_UPDATE_REQUIRED: [ "請更新至 1.9.0 或更新韌體，才能保留舊資料並清除新版加工檔。", "Update to firmware 1.9.0 or later to clear new jobs while preserving legacy data." ],
           GCODE_FILE_SIZE: [ "G-code 含工作資訊的檔案上限為 4 MiB，且不可為空檔。", "G-code including job metadata must be nonempty and at most 4 MiB." ],
           OUT_OF_BOUNDS: [ "座標超出目前機器的工作範圍。", "Coordinates exceed the current machine workspace." ],
           LINE_OVER_256: [ "指令行超過 256 個有效字元。", "The command line exceeds 256 active characters." ],
@@ -4509,6 +4569,112 @@
           }
         };
       })();
+
+      (() => {
+        "use strict";
+        function shape(kind, width, height, sides = 6) {
+          if (!Number.isFinite(width) || !Number.isFinite(height) || width < 1 || height < 1 || width > 1e3 || height > 1e3) throw Error("SHAPE_SIZE");
+          if (kind === "rectangle") return [ {
+            x: -width / 2,
+            y: -height / 2
+          }, {
+            x: width / 2,
+            y: -height / 2
+          }, {
+            x: width / 2,
+            y: height / 2
+          }, {
+            x: -width / 2,
+            y: height / 2
+          } ];
+          if (![ "ellipse", "polygon" ].includes(kind)) throw Error("SHAPE_KIND");
+          if (kind === "polygon" && (!Number.isInteger(sides) || sides < 3 || sides > 64)) throw Error("SHAPE_SIDES");
+          const count = kind === "ellipse" ? Math.max(48, Math.min(4096, Math.ceil(Math.PI * Math.max(width, height) / .15))) : sides;
+          return Array.from({
+            length: count
+          }, (_, i) => ({
+            x: width / 2 * Math.cos(2 * Math.PI * i / count - Math.PI / 2),
+            y: height / 2 * Math.sin(2 * Math.PI * i / count - Math.PI / 2)
+          }));
+        }
+        function simplify(points, tolerance = .08) {
+          if (points.length < 3) return points.slice();
+          const keep = new Set([ 0, points.length - 1 ]), stack = [ [ 0, points.length - 1 ] ];
+          while (stack.length) {
+            const [a, b] = stack.pop(), p = points[a], q = points[b], dx = q.x - p.x, dy = q.y - p.y, d = dx * dx + dy * dy;
+            let far = tolerance * tolerance, at = -1;
+            for (let i = a + 1; i < b; ++i) {
+              const r = points[i], t = d ? Math.max(0, Math.min(1, ((r.x - p.x) * dx + (r.y - p.y) * dy) / d)) : 0, dd = (r.x - p.x - t * dx) ** 2 + (r.y - p.y - t * dy) ** 2;
+              if (dd > far) {
+                far = dd;
+                at = i;
+              }
+            }
+            if (at >= 0) {
+              keep.add(at);
+              stack.push([ a, at ], [ at, b ]);
+            }
+          }
+          return [ ...keep ].sort((a, b) => a - b).map(i => ({
+            ...points[i]
+          }));
+        }
+        function stroke(points) {
+          if (points.length < 2 || points.some(p => !Number.isFinite(p.x) || !Number.isFinite(p.y))) return null;
+          points = simplify(points);
+          const xs = points.map(p => p.x), ys = points.map(p => p.y), minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+          if (Math.hypot(maxX - minX, maxY - minY) < .2) return null;
+          const x = (minX + maxX) / 2, y = (minY + maxY) / 2, width = Math.max(.1, maxX - minX), height = Math.max(.1, maxY - minY);
+          return {
+            x: x,
+            y: y,
+            width: width,
+            height: height,
+            baseWidth: width,
+            baseHeight: height,
+            points: points.map(p => ({
+              x: p.x - x,
+              y: y - p.y
+            }))
+          };
+        }
+        window.Cubiio2Core.drawing = {
+          shape: shape,
+          stroke: stroke,
+          simplify: simplify
+        };
+      })();
+
+      (function(root) {
+        "use strict";
+        const common = [ [ "Microsoft JhengHei", "微軟正黑體", [ "Microsoft JhengHei", "MicrosoftJhengHeiRegular" ] ], [ "PMingLiU", "新細明體", [ "PMingLiU" ] ], [ "DFKai-SB", "標楷體", [ "DFKai-SB", "DFKaiShu-SB-Estd-BF" ] ], [ "PingFang TC", "蘋方 繁體", [ "PingFang TC Regular", "PingFangTC-Regular" ] ], [ "Heiti TC", "黑體 繁體", [ "Heiti TC Light", "STHeitiTC-Light" ] ], [ "Songti TC", "宋體 繁體", [ "Songti TC Regular", "SongtiTC-Regular" ] ], [ "Noto Sans CJK TC", "思源黑體", [ "Noto Sans CJK TC Regular", "NotoSansCJKtc-Regular" ] ], [ "Noto Serif CJK TC", "思源宋體", [ "Noto Serif CJK TC Regular", "NotoSerifCJKtc-Regular" ] ], [ "Arial", "Arial", [ "Arial", "ArialMT" ] ], [ "Times New Roman", "Times New Roman", [ "Times New Roman", "TimesNewRomanPSMT" ] ], [ "Courier New", "Courier New", [ "Courier New", "CourierNewPSMT" ] ], [ "Segoe UI", "Segoe UI", [ "Segoe UI", "SegoeUI" ] ], [ "Helvetica Neue", "Helvetica Neue", [ "Helvetica Neue", "HelveticaNeue" ] ], [ "Menlo", "Menlo", [ "Menlo Regular", "Menlo-Regular" ] ], [ "Roboto", "Roboto", [ "Roboto", "Roboto-Regular" ] ] ];
+        let pending;
+        function load(doc = root.document, Face = root.FontFace) {
+          if (pending) return pending;
+          pending = (async () => {
+            if (typeof Face !== "function" || !doc?.fonts?.add) return [];
+            const results = await Promise.all(common.map(async ([family, label, names]) => {
+              const alias = "Cubiio Local " + family;
+              try {
+                const face = await new Face(alias, names.map(name => "local(" + JSON.stringify(name) + ")").join(",")).load();
+                doc.fonts.add(face);
+                return {
+                  family: alias,
+                  label: label,
+                  familyName: family
+                };
+              } catch {
+                return null;
+              }
+            }));
+            return results.filter(Boolean);
+          })();
+          return pending;
+        }
+        root.Cubiio2Core.localFonts = {
+          load: load
+        };
+      })(window);
     </script>
     <script id="cubiio2-worker-source" type="text/plain">
       "use strict";
@@ -8104,9 +8270,14 @@
         margin-top: calc(1rem * (1 - var(--tw-space-y-reverse)));
       }
       .project-option-group {
-        background: var(--raised);
         border-radius: 0.375rem;
         padding: 0.75rem;
+      }
+      .project-controls .project-option-group {
+        margin-top: 10px;
+      }
+      .project-option-group {
+        background: var(--raised);
       }
       .project-option-row {
         align-items: center;
@@ -8128,6 +8299,9 @@
         gap: 0.5rem;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-top: 1rem;
+      }
+      .project-controls .project-export-actions {
+        margin-top: 10px;
       }
       .project-converted-badge {
         align-items: center;
@@ -8308,6 +8482,9 @@
         grid-template-columns: repeat(1, minmax(0, 1fr));
         margin-top: 1rem;
       }
+      .project-controls .engineering-grid {
+        margin-top: 10px;
+      }
       @media (min-width: 1024px) {
         .engineering-grid.segmented-control {
           grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -8330,6 +8507,9 @@
         margin-top: 1rem;
         row-gap: 0.75rem;
       }
+      .project-controls .engineering-checks {
+        margin-top: 10px;
+      }
       .maintenance-actions {
         display: flex;
         flex-wrap: wrap;
@@ -8345,13 +8525,18 @@
         padding: 0.75rem 1rem;
       }
       .coordinate-strip {
-        background: var(--surface);
-        border: 1px solid var(--border);
         border-radius: 0.375rem;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-top: 1.25rem;
         overflow: hidden;
+      }
+      .project-controls .coordinate-strip {
+        margin-top: 12px;
+      }
+      .coordinate-strip {
+        background: var(--surface);
+        border: 1px solid var(--border);
       }
       .coordinate-strip div {
         font-size: 1.125rem;
@@ -8370,6 +8555,9 @@
         gap: 1.25rem;
         grid-template-columns: repeat(1, minmax(0, 1fr));
         margin-top: 1.25rem;
+      }
+      .project-controls .jog-layout {
+        margin-top: 12px;
       }
       @media (min-width: 640px) {
         .jog-layout {
@@ -8419,6 +8607,9 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         margin-top: 1.25rem;
       }
+      .project-controls .maintenance-choice-grid {
+        margin-top: 12px;
+      }
       @media (min-width: 640px) {
         .maintenance-choice-grid {
           grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -8430,12 +8621,17 @@
         color: var(--surface);
       }
       .maintenance-result {
-        background: var(--surface);
         border-radius: 0.375rem;
         font-size: 0.875rem;
         line-height: 1.25rem;
         margin-top: 1.25rem;
         padding: 1rem;
+      }
+      .project-controls .maintenance-result {
+        margin-top: 12px;
+      }
+      .maintenance-result {
+        background: var(--surface);
       }
       #project-file-input::file-selector-button {
         background: var(--surface);
@@ -9366,7 +9562,6 @@
         padding-top: 16px;
       }
       .project-controls .project-tabs {
-        display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         overflow: visible;
       }
@@ -9383,6 +9578,190 @@
         min-width: 0;
         white-space: nowrap;
         width: 100%;
+      }
+      .project-editor-layout {
+        align-items: start;
+        display: grid !important;
+        gap: 16px;
+        grid-template-columns: minmax(0, 1fr) 340px;
+      }
+      .project-stage {
+        min-width: 0;
+      }
+      .project-stage-footer {
+        align-items: center;
+        display: grid;
+        gap: 8px;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        padding: 8px 12px;
+      }
+      .project-stage-footer #project-machine-size {
+        font-size: 12px;
+        white-space: nowrap;
+      }
+      .project-stage-footer #project-zoom-value {
+        font-size: 12px;
+        text-align: right;
+      }
+      .project-stage-footer .project-history-controls {
+        gap: 4px;
+        grid-column: 2;
+        grid-row: 1;
+      }
+      .project-stage-footer .history-icon {
+        height: 36px;
+        min-height: 36px;
+        padding: 7px;
+        width: 36px;
+      }
+      .project-stage-footer #project-converted-badge {
+        bottom: 6px;
+        left: 8px;
+        position: absolute;
+        z-index: 1;
+      }
+      .project-controls {
+        max-height: calc(100dvh - 180px) !important;
+        min-width: 0;
+        overflow: hidden !important;
+        position: relative;
+        z-index: 2;
+      }
+      .project-controls .project-tool-header {
+        gap: 8px;
+        min-height: 44px;
+        padding: 8px 12px;
+      }
+      .project-controls .project-tool-header h2 {
+        font-size: 13px;
+      }
+      .project-controls .project-tabs {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+      .project-controls .project-tab {
+        display: flex;
+        flex-direction: column;
+        font-size: 11px;
+        gap: 4px;
+        min-height: 48px;
+        padding: 8px 2px;
+      }
+      .project-controls .project-panel {
+        background: var(--surface);
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        max-height: none;
+        overflow-y: auto;
+        padding: 12px;
+        position: static;
+        width: 100%;
+      }
+      .project-controls .project-panel[data-project-panel="output"] {
+        display: flex;
+        height: auto;
+        max-height: calc(100dvh - 280px);
+      }
+      .project-controls .project-panel[hidden] {
+        display: none !important;
+      }
+      .project-controls .field-label {
+        font-size: 12px;
+        line-height: 1.3;
+        margin-bottom: 5px;
+      }
+      .project-controls .form-control {
+        min-height: 40px;
+        padding: 8px 10px;
+      }
+      .project-controls .project-field-grid {
+        gap: 8px;
+      }
+      .project-controls .mt-4 {
+        margin-top: 10px;
+      }
+      .project-controls .mt-5 {
+        margin-top: 12px;
+      }
+      .project-controls .field-help {
+        font-size: 12px;
+        line-height: 1.45;
+        margin-top: 6px;
+      }
+      .project-controls .project-panel .action-button {
+        min-height: 40px;
+        padding: 8px 12px;
+      }
+      .project-controls .project-output-scroll {
+        padding: 12px;
+      }
+      .project-controls .project-output-footer {
+        padding: 10px 12px;
+      }
+      .project-controls #project-layer-list {
+        height: 76px;
+      }
+      #project-close-tool[hidden],
+      #project-shape-sides-row[hidden] {
+        display: none;
+      }
+      #project-editor-canvas[data-cursor="crosshair"] {
+        cursor: crosshair;
+      }
+      @media (max-aspect-ratio: 4/5), (max-width: 900px) {
+        .project-editor-layout {
+          display: flex !important;
+          flex-direction: column;
+          gap: 0;
+        }
+        .project-stage {
+          border-bottom: 0;
+          border-radius: 12px 12px 0 0;
+          overflow: hidden;
+          width: 100%;
+        }
+        .project-stage-footer {
+          padding: 6px 10px;
+        }
+        .project-stage-footer #project-machine-size,
+        .project-stage-footer #project-zoom-value {
+          font-size: 11px;
+        }
+        .project-stage-footer .history-icon {
+          height: 32px;
+          min-height: 32px;
+          padding: 6px;
+          width: 32px;
+        }
+        .project-controls {
+          border-radius: 0 0 12px 12px;
+          border-top: 0;
+          max-height: none !important;
+          overflow: visible !important;
+          width: 100%;
+        }
+        .project-controls .project-tool-header {
+          display: none;
+        }
+        .project-controls .project-panel {
+          padding: 12px 16px 16px;
+        }
+        .project-controls .project-panel[data-project-panel="output"] {
+          height: auto;
+          max-height: 65dvh;
+        }
+        .project-controls .form-control {
+          font-size: 16px;
+        }
+        .project-controls .project-panel .action-button {
+          min-height: 44px;
+        }
+        #project-canvas-wrap {
+          aspect-ratio: var(--workspace-ratio, 300/210);
+          height: auto !important;
+          min-height: 0;
+        }
       }
       .disabled\:cursor-not-allowed:disabled {
         cursor: not-allowed;
@@ -9897,14 +10276,6 @@
 
             <div class="project-editor-layout">
               <div class="project-stage">
-                <div id="project-canvas-wrap" class="project-canvas-wrap">
-                  <canvas
-                    tabindex="0"
-                    id="project-editor-canvas"
-                    aria-label="加工畫布"
-                    data-i18n-aria-label="加工畫布"
-                  ></canvas>
-                </div>
                 <div class="project-stage-footer">
                   <span id="project-machine-size">A4 · 300 × 210 mm</span>
                   <span
@@ -9914,14 +10285,7 @@
                     data-i18n="projectConvertedPreview"
                     >轉檔預覽</span
                   >
-                  <span id="project-zoom-value">100%</span>
-                </div>
-              </div>
-
-              <aside class="project-controls" aria-label="畫布操作" data-i18n-aria-label="畫布操作">
-                <div class="project-tool-header"
-                  ><div><h2 data-i18n="toolPanel">設計工具</h2></div
-                  ><div class="project-history-controls"
+                  <div class="project-history-controls"
                     ><button
                       id="project-undo"
                       class="action-button history-icon"
@@ -9963,7 +10327,31 @@
                         <path d="m15 5 5 5-5 5M20 10h-9a7 7 0 0 0-7 7v2" /></svg
                       ><span class="sr-only" data-i18n="redo">重做</span></button
                     ></div
-                  ></div
+                  ><span id="project-zoom-value">100%</span>
+                </div>
+                <div id="project-canvas-wrap" class="project-canvas-wrap">
+                  <canvas
+                    tabindex="0"
+                    id="project-editor-canvas"
+                    aria-label="加工畫布"
+                    data-i18n-aria-label="加工畫布"
+                  ></canvas>
+                </div>
+              </div>
+
+              <aside class="project-controls" aria-label="畫布操作" data-i18n-aria-label="畫布操作">
+                <div class="project-tool-header"
+                  ><button
+                    id="project-close-tool"
+                    type="button"
+                    class="action-button history-icon"
+                    aria-label="關閉工具"
+                    title="關閉工具"
+                    data-i18n-title="toolClose"
+                    data-i18n-aria-label="toolClose"
+                    hidden
+                    >×</button
+                  ><div><h2 data-i18n="toolPanel">設計工具</h2></div></div
                 ><div
                   class="project-tabs"
                   role="tablist"
@@ -9974,7 +10362,7 @@
                     class="project-tab"
                     type="button"
                     role="tab"
-                    aria-selected="true"
+                    aria-selected="false"
                     data-project-tab="upload"
                     ><svg
                       aria-hidden="true"
@@ -10001,6 +10389,38 @@
                     >
                       <path d="M5 6V4h14v2M12 4v16M8.5 20h7" /></svg
                     ><span data-i18n="projectText">文字</span></button
+                  >
+                  <button
+                    class="project-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-project-tab="shape"
+                    ><svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                    >
+                      <circle cx="12" cy="12" r="8" /></svg
+                    ><span data-i18n="projectShape">圖形</span></button
+                  >
+                  <button
+                    class="project-tab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    data-project-tab="brush"
+                    ><svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.7"
+                    >
+                      <path d="m4 20 4-1L20 7l-3-3L5 16Z" /></svg
+                    ><span data-i18n="projectBrush">畫筆</span></button
                   >
                   <button
                     class="project-tab"
@@ -10038,7 +10458,7 @@
                   >
                 </div>
 
-                <section class="project-panel" data-project-panel="upload">
+                <section class="project-panel" data-project-panel="upload" hidden>
                   <label for="project-file-input" class="field-label" data-i18n="projectChooseFiles"
                     >選擇 SVG、JPG、BMP 或 PNG</label
                   >
@@ -10150,6 +10570,80 @@ Cubiio2</textarea
                   >
                 </section>
 
+                <section class="project-panel" data-project-panel="shape" hidden>
+                  <label class="field-label" for="project-shape-kind" data-i18n="shapeKind"
+                    >基本圖形</label
+                  >
+                  <select id="project-shape-kind" class="form-control"
+                    ><option value="ellipse" data-i18n="shapeEllipse">圓／橢圓</option
+                    ><option value="polygon" data-i18n="shapePolygon">正多角形</option
+                    ><option value="rectangle" data-i18n="shapeRectangle">矩形</option></select
+                  >
+                  <div id="project-shape-sides-row" class="project-field-grid mt-4" hidden
+                    ><label
+                      for="project-shape-sides"
+                      class="field-label mt-4"
+                      data-i18n="shapeSides"
+                      >邊數（3–64）</label
+                    ><input
+                      id="project-shape-sides"
+                      class="form-control"
+                      type="number"
+                      min="3"
+                      max="64"
+                      step="1"
+                      value="6"
+                  /></div>
+                  <div class="project-field-grid mt-4"
+                    ><div
+                      ><label for="project-shape-width" class="field-label" data-i18n="projectWidth"
+                        >寬 / mm</label
+                      ><input
+                        id="project-shape-width"
+                        class="form-control"
+                        type="number"
+                        min="1"
+                        max="1000"
+                        value="40" /></div
+                    ><div
+                      ><label
+                        for="project-shape-height"
+                        class="field-label"
+                        data-i18n="projectHeight"
+                        >高 / mm</label
+                      ><input
+                        id="project-shape-height"
+                        class="form-control"
+                        type="number"
+                        min="1"
+                        max="1000"
+                        value="40" /></div
+                  ></div>
+                  <button
+                    id="project-add-shape"
+                    class="action-button primary mt-4 w-full"
+                    type="button"
+                    data-i18n="shapeAdd"
+                    >加入圖形</button
+                  ></section
+                >
+                <section class="project-panel" data-project-panel="brush" hidden
+                  ><p class="field-help" data-i18n="brushHelp"
+                    >用手指、觸控筆或滑鼠畫線。每筆為獨立向量圖層；雙指可縮放，Esc 結束畫筆。</p
+                  ><button
+                    id="project-brush-activate"
+                    class="action-button primary mt-4 w-full"
+                    type="button"
+                    data-i18n="brushStart"
+                    >開始畫筆</button
+                  ><button
+                    id="project-brush-finish"
+                    class="action-button mt-4 w-full"
+                    type="button"
+                    data-i18n="brushStop"
+                    >結束畫筆</button
+                  ></section
+                >
                 <section class="project-panel" data-project-panel="edit" hidden>
                   <div id="project-layer-name" data-user-content class="project-layer-name"
                     >未選取物件</div
@@ -11137,8 +11631,8 @@ Cubiio2</textarea
                     <h2 id="wifi-title" class="sr-only" data-i18n="機器 Wi‑Fi 設定"
                       >機器 Wi‑Fi 設定</h2
                     >
-                    <p id="c2-wifi-status" class="field-help" data-i18n="請先使用 USB 連接機器。"
-                      >請先使用 USB 連接機器。</p
+                    <p id="c2-wifi-status" class="field-help" data-i18n="wifiSetupConnect"
+                      >先透過 USB、AP 或 LAN 連接機器，再設定 Wi-Fi。</p
                     >
                   </div>
                   <span id="c2-wifi-state" class="status-pill" data-i18n="未連線">未連線</span>
@@ -11197,6 +11691,37 @@ Cubiio2</textarea
                         disabled
                         data-i18n="連線並儲存"
                         >連線並儲存</button
+                      >
+                      <button
+                        id="c2-ap-start"
+                        class="action-button"
+                        type="button"
+                        data-i18n="apStart"
+                        >開啟直連熱點</button
+                      ><button
+                        id="c2-ap-stop"
+                        class="action-button"
+                        type="button"
+                        data-i18n="apStop"
+                        >關閉熱點</button
+                      ><p id="c2-ap-info" class="field-help" data-user-content></p
+                      ><div id="c2-lan-handoff" hidden
+                        ><p id="c2-lan-handoff-info" class="field-help" role="status"></p
+                        ><button
+                          id="c2-retry-lan"
+                          class="action-button"
+                          type="button"
+                          data-i18n="wifiRetryLan"
+                          hidden
+                          >重試自動連線</button
+                        ><a
+                          id="c2-open-lan-page"
+                          class="action-button"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-i18n="wifiOpenLan"
+                          >開啟 LAN 網頁</a
+                        ></div
                       >
                       <button
                         id="c2-wifi-forget"
@@ -11284,7 +11809,8 @@ Cubiio2</textarea
               <select id="c2-connection-method" class="form-control"
                 ><option value="" data-i18n="選擇 USB 或 LAN">選擇 USB 或 LAN</option
                 ><option value="usb">USB</option
-                ><option value="wifi">Wi-Fi / LAN</option></select
+                ><option value="wifi">Wi-Fi / LAN</option
+                ><option value="ap" data-i18n="apConnection">直連 AP</option></select
               >
               <div id="c2-usb-settings" class="connection-details" hidden>
                 <button
@@ -11310,6 +11836,14 @@ Cubiio2</textarea
                 >
               </div>
               <div id="c2-lan-settings" class="connection-details" hidden>
+                <div id="c2-ap-connect" hidden
+                  ><p class="field-help" data-i18n="apConnectHelp"
+                    >先在系統 Wi-Fi 加入 Cubiio2-[四碼序號]，再搜尋直連機器。網址為
+                    http://cubiio2-[四碼序號].local 或 http://192.168.4.1。</p
+                  ><button id="c2-find-ap" class="action-button" data-i18n="apFind"
+                    >搜尋直連機器</button
+                  ></div
+                >
                 <div class="rounded-md p-3" style="border:1px solid var(--border)">
                   <div class="flex items-center justify-between gap-3">
                     <span class="inline-flex items-center gap-2 text-sm font-medium"
@@ -11335,14 +11869,11 @@ Cubiio2</textarea
                       >搜尋 LAN</button
                     >
                   </div>
-                  <label
-                    for="c2-lan-devices"
-                    class="field-label mt-3"
-                    data-i18n="同一 LAN 的 Cubiio2"
+                  <label id="c2-lan-list-label" for="c2-lan-devices" class="field-label mt-3"
                     >同一 LAN 的 Cubiio2</label
                   >
                   <select id="c2-lan-devices" class="form-control" size="4"></select>
-                  <div class="mt-3 grid grid-cols-[minmax(0,1fr)_auto] gap-2">
+                  <div id="c2-lan-manual" class="mt-3 grid grid-cols-[minmax(0,1fr)_auto] gap-2">
                     <input
                       id="c2-lan-hostname"
                       class="form-control"
@@ -11591,13 +12122,15 @@ Cubiio2</textarea
         const LAN_STORAGE_KEY = "cubiio2.devices.v170";
         const {ENGINEERING_STORAGE_KEY: ENGINEERING_STORAGE_KEY} = window.Cubiio2Core;
         const LAN_DISCOVERY_HOSTS = [ "cubiio2.local" ];
-        const hostedLanEndpoint = location.protocol === "http:" && location.pathname === "/app/" ? location.hostname : "";
+        const hostedLanPageEndpoint = location.protocol === "http:" && [ "/app/", "/" ].includes(location.pathname) ? location.hostname : "";
+        let hostedLanEndpoint = hostedLanPageEndpoint, lanHandoff = null;
         let hostedLanUid = "";
         const LAN_FALLBACK_SUBNETS = [ "192.168.0", "192.168.1", "192.168.50", "192.168.100", "10.0.0", "10.0.1" ];
         let lanDevices = {};
         try {
           const stored = JSON.parse(localStorage.getItem(LAN_STORAGE_KEY) || "{}");
           if (stored && typeof stored === "object" && !Array.isArray(stored)) lanDevices = stored;
+          for (const item of Object.values(lanDevices)) if (item) item.online = false;
         } catch (_) {}
         let requestId = Math.floor(Math.random() * 1879048192) + 1;
         let busy = false;
@@ -11722,7 +12255,11 @@ Cubiio2</textarea
           const link = via === "wifi" ? wifi : usb;
           return Boolean(link.info && performance.now() - link.at < (c2JobActive(link.info) ? 12e3 : 6e3) && (via === "wifi" ? wifiReady() : link.link?.running));
         }
+        function sdUploadPath(name) {
+          return (info()?.net?.sd_layout === 2 ? "/uploads2/" : "/") + name.split("/").pop();
+        }
         function safeSdName(name) {
+          if (typeof name === "string" && name.startsWith("uploads2/")) name = name.slice(9);
           return typeof name === "string" && encoder.encode(name).length <= 64 && !/[\\/:*?"<>|\x00-\x1f\x7f]/.test(name) && /\.(bmp|gcode|nc|txt)$/i.test(name) && !/^(?:_sys|pref\.(?:cfg|tmp|bak)|config\.(?:sys|tmp|bak)|work\.(?:upload|backup))$/i.test(name) && !/[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/.test(name);
         }
         function isGcodeName(name) {
@@ -11821,7 +12358,7 @@ Cubiio2</textarea
           const link = via === "wifi" ? wifi : usb;
           link.info = status;
           link.at = performance.now();
-          rememberLanDevice(status);
+          rememberLanDevice(status, via);
           syncDeviceProfile(status);
           renderDevice();
           machineJobs.observe(status);
@@ -12316,11 +12853,15 @@ Cubiio2</textarea
         }
         function normalizeLanHost(value) {
           const host = String(value || "").trim().toLowerCase().replace(/^https?:\/\//, "").replace(/\/$/, "");
-          if (!/^(?=.{1,63}\.local$)cubiio2[a-z0-9-]*\.local$/.test(host)) throw makeUiError(() => ui("mDNS 名稱必須以 cubiio2 開頭並以 .local 結尾。"));
+          if (!/^(?:cubiio2[a-z0-9-]*|cubiio2\.(?:[a-z0-9]{4}|setup))\.local$/.test(host)) throw makeUiError(() => ui("mDNS 名稱必須以 cubiio2 開頭並以 .local 結尾。"));
           return host;
         }
         function lanTarget(value) {
           const input = String(value || "").trim();
+          if (/\.local\/?$/i.test(input)) return {
+            endpoint: normalizeLanHost(input),
+            isIp: false
+          };
           if (input.includes(".")) {
             const ip = ipv4Address(input);
             if (!privateIpv4(ip) && !ip.startsWith("169.254.")) throw makeUiError(() => ui("請輸入有效區網 IPv4 或 4 碼序號。"));
@@ -12370,13 +12911,17 @@ Cubiio2</textarea
             localStorage.setItem(LAN_STORAGE_KEY, JSON.stringify(lanDevices));
           } catch (_) {}
         }
-        function rememberLanDevice(status) {
+        function rememberLanDevice(status, via) {
           if (!status || !/^[0-9a-f]{12}$/i.test(status.uid || "")) return;
           const previous = lanDevices[status.uid] || {};
           const hostname = lanHostname(status) || previous.hostname || "";
-          const ip = status.net?.connected && /^\d{1,3}(?:\.\d{1,3}){3}$/.test(status.net?.ip || "") ? status.net.ip : previous.ip || "";
+          const ip = via === "wifi" ? status.net?.via_ap ? status.net.ap_ip : previous.ip || status.net?.ip || "" : status.net?.connected ? status.net.ip : previous.ip || "";
           if (!hostname && !ip) return;
           lanDevices[status.uid] = {
+            ...previous,
+            lanIp: status.net?.connected ? ipv4Address(status.net.ip) : "",
+            viaAp: via === "wifi" ? Boolean(status.net?.via_ap) : previous.viaAp,
+            online: via === "wifi" || previous.online === true,
             uid: status.uid,
             sn: status.sn || previous.sn || "",
             hostname: hostname,
@@ -12411,6 +12956,8 @@ Cubiio2</textarea
             sn: data.sn || previous.sn || "",
             hostname: hostname,
             ip: reportedIp || endpointIp || previous.ip || "",
+            lanIp: typeof data.lan_ip === "string" ? ipv4Address(data.lan_ip) : previous.lanIp || "",
+            viaAp: Boolean(data.via_ap),
             model: data.model || previous.model || "",
             name: hostname.replace(/\.local$/, "") || previous.name || "Cubiio2",
             endpoint: endpoint,
@@ -12424,20 +12971,24 @@ Cubiio2</textarea
           renderLanDevices();
           return current;
         }
+        function lanDeviceLabel(item) {
+          const serial = serialCodeFromStatus(item) || "setup", direct = byId("c2-connection-method").value === "ap";
+          return "cubiio2-" + serial + ".local(" + ipv4Address(direct ? item.ip : item.lanIp || item.ip) + ")" + (!direct && item.viaAp && !item.lanIp ? " · " + ui("apOnly") : "");
+        }
         function renderLanDevices() {
           const select = byId("c2-lan-devices");
           if (!select) return;
           const selected = select.value || wifi.active?.uid || "";
-          const rows = Object.values(lanDevices).filter(item => item && (item.hostname || item.ip));
+          const rows = Object.values(lanDevices).filter(item => item?.online === true && ipv4Address(item.ip));
+          rows.sort((a, b) => lanDeviceLabel(a).localeCompare(lanDeviceLabel(b)));
           select.replaceChildren(...rows.map(item => {
             const option = document.createElement("option");
             option.value = item.uid;
-            const state = item.online === true ? ui("LAN 可連線") : item.online === false ? ui("未回應") : ui("待偵測");
-            setUiText(option, () => `${item.name || item.hostname || "Cubiio2"} · ${state} · ${item.hostname || item.ip}`);
+            setUiText(option, () => lanDeviceLabel(item));
             return option;
           }));
           if (rows.some(item => item.uid === selected)) select.value = selected; else if (rows.length) select.selectedIndex = 0;
-          setUiText(byId("c2-lan-help"), () => rows.length ? ui`已找到 ${rows.length} 台 Cubiio2；同一 LAN 可直接以 UID 控制，不需 USB 配對。` : ui("輸入機器 4 碼序號，或按「搜尋 LAN」尋找同網段 Cubiio2。"));
+          setUiText(byId("c2-lan-help"), () => rows.length ? byId("c2-connection-method").value === "ap" ? ui("apFound") : ui`已找到 ${rows.length} 台 Cubiio2；同一 LAN 可直接以 UID 控制，不需 USB 配對。` : byId("c2-connection-method").value === "ap" ? ui("apNotFound") : ui("輸入機器 4 碼序號，或按「搜尋 LAN」尋找同網段 Cubiio2。"));
         }
         async function localFetch(url, options = {}, timeout = 8e3, binary = false) {
           const controller = new AbortController;
@@ -12465,7 +13016,7 @@ Cubiio2</textarea
           }
         }
         function lanApi(endpoint, resource) {
-          return hostedLanEndpoint && endpoint === hostedLanEndpoint ? `/api/${resource}` : `http://${endpoint}/api/${resource}`;
+          return hostedLanPageEndpoint && endpoint === hostedLanPageEndpoint ? `/api/${resource}` : `http://${endpoint}/api/${resource}`;
         }
         function controlEndpoint(device) {
           return hostedLanEndpoint || device?.endpoint || device?.hostname || device?.ip;
@@ -12476,7 +13027,7 @@ Cubiio2</textarea
           }
         }
         async function resolveLanDevice(device, timeout = 3500) {
-          const candidates = hostedLanEndpoint ? [ hostedLanEndpoint ] : [ ...new Set([ device?.endpoint, device?.ip, device?.hostname ].filter(Boolean)) ];
+          const candidates = hostedLanEndpoint && device?.uid === hostedLanUid ? [ hostedLanEndpoint ] : [ ...new Set([ device?.endpoint, device?.ip, device?.hostname ].filter(Boolean)) ];
           let lastError;
           for (const endpoint of candidates) {
             try {
@@ -12487,6 +13038,8 @@ Cubiio2</textarea
               if (device.uid !== uid && lanDevices[device.uid]) delete lanDevices[device.uid];
               current.uid = uid;
               current.hostname = lanHostname(data) || current.hostname || "";
+              if (typeof data.lan_ip === "string") current.lanIp = ipv4Address(data.lan_ip);
+              current.viaAp = Boolean(data.via_ap);
               if (/^\d{1,3}(?:\.\d{1,3}){3}$/.test(data.ip || "")) current.ip = data.ip;
               current.endpoint = endpoint;
               current.online = true;
@@ -12538,9 +13091,9 @@ Cubiio2</textarea
             }
           });
         }
-        async function probeLanEndpoint(endpoint, timeout = 850) {
+        async function probeLanEndpoint(endpoint, timeout = 850, expectedUid = "") {
           const data = await localFetch(lanApi(endpoint, "info"), {}, timeout);
-          if (data?.product !== "cubiio2" || !/^[0-9a-f]{12}$/i.test(data.uid || "")) throw makeUiError(() => "NOT_CUBIIO2");
+          if (data?.product !== "cubiio2" || !/^[0-9a-f]{12}$/i.test(data.uid || "") || expectedUid && data.uid !== expectedUid) throw makeUiError(() => "NOT_CUBIIO2");
           return rememberDiscoveredLanDevice(data, endpoint);
         }
         async function scanLanEndpoints(endpoints, concurrency = 56) {
@@ -12581,10 +13134,17 @@ Cubiio2</textarea
           const result = await localFetch(lanApi(endpoint, "devices"), {}, 6e3);
           if (!Array.isArray(result?.devices)) throw makeUiError(() => "DISCOVERY_REPLY");
           let found = 0;
-          for (const item of result.devices.slice(0, 13)) {
-            const itemEndpoint = hostedLanEndpoint && item?.uid === seed.uid ? hostedLanEndpoint : ipv4Address(item?.ip) || lanHostname(item);
-            if (rememberDiscoveredLanDevice(item, itemEndpoint || endpoint)) found += 1;
-          }
+          await Promise.allSettled(result.devices.slice(0, 13).map(async item => {
+            if (item?.uid === seed.uid) {
+              ++found;
+              return;
+            }
+            if (item?.product !== "cubiio2" || !/^[0-9a-f]{12}$/i.test(item.uid || "")) return;
+            const target = ipv4Address(item.ip) || lanHostname(item);
+            if (!target) return;
+            await probeLanEndpoint(target, 1600, item.uid);
+            ++found;
+          }));
           return found;
         }
         async function refreshLanDevices({discover: discover = true} = {}) {
@@ -12595,6 +13155,7 @@ Cubiio2</textarea
             setUiText(byId("c2-lan-help"), () => discover ? ui("正在搜尋同一 LAN 的 Cubiio2…") : ui("正在確認已記錄的 Cubiio2…"));
             const rows = Object.values(lanDevices).filter(item => item && (item.hostname || item.ip));
             let seed = null;
+            for (const device of rows) device.online = false;
             if (hostedLanEndpoint) {
               seed = await probeLanEndpoint(hostedLanEndpoint, 3e3);
               hostedLanUid = seed.uid;
@@ -12603,17 +13164,24 @@ Cubiio2</textarea
                 await discoverLanNeighbors(seed).catch(() => 0);
               }
             } else {
-              for (const device of rows) {
-                try {
-                  seed = seed || await resolveLanDevice(device, 1800);
-                } catch (_) {}
-              }
+              let cursor = 0;
+              await Promise.all(Array.from({
+                length: Math.min(4, rows.length)
+              }, async () => {
+                while (cursor < rows.length) {
+                  const device = rows[cursor++];
+                  try {
+                    const current = await resolveLanDevice(device, 1200);
+                    seed = seed || current;
+                  } catch (_) {}
+                }
+              }));
               if (discover) {
                 const entered = byId("c2-lan-hostname").value.trim();
                 if (entered) {
                   const target = lanTarget(entered), endpoint = target.endpoint;
                   const data = await localFetch(lanApi(endpoint, "info"), {}, 4e3);
-                  if (!target.isIp) verifySerialCode(data, entered);
+                  if (/^[a-z0-9]{4}$/i.test(entered)) verifySerialCode(data, entered);
                   seed = rememberDiscoveredLanDevice(data, endpoint) || seed;
                 }
                 if (!seed && location.protocol === "http:" && location.hostname && ![ "localhost", "127.0.0.1" ].includes(location.hostname)) {
@@ -12721,29 +13289,118 @@ Cubiio2</textarea
             throw error;
           }
         }
-        async function waitForWifi(timeout, requireConnected = false) {
+        async function autoReconnectLan(start, expectedSsid = "") {
+          const uid = wifi.active?.uid;
+          if (!uid) throw makeUiError(() => "LAN_DISCONNECTED");
+          const name = start.net?.hostname || wifi.active.hostname || "", deadline = performance.now() + 6e4;
+          let last = start, lanIp = ipv4Address(start.net?.ip);
+          lanHandoff = {
+            status: start,
+            ssid: expectedSsid,
+            uid: uid
+          };
+          setMessage(() => ui("wifiAutoLanWaiting"));
+          renderDevice();
+          do {
+            if (wifi.active?.uid !== uid) throw makeUiError(() => "TARGET_CHANGED");
+            let current = null;
+            try {
+              current = await wifiRequest("STATUS", 1e3);
+            } catch (error) {
+              if (!/LAN_REPLY_TIMEOUT|WIFI_REPLY_TIMEOUT|Failed to fetch|NetworkError|Load failed|QUEUE_FULL|WIFI_COMMAND_EXPIRED/i.test(String(error?.message || error))) throw error;
+            }
+            if (current) {
+              last = current;
+              if (current.net?.error) {
+                lanHandoff = null;
+                throw makeUiError(() => current.net.error);
+              }
+              if (current.net?.connected && ipv4Address(current.net.ip)) lanIp = ipv4Address(current.net.ip);
+              lanHandoff.status = current;
+            }
+            const candidates = [ ...new Set([ lanIp, name ].filter(value => value && value !== last.net?.ap_ip)) ];
+            for (const candidate of candidates) {
+              try {
+                const data = await localFetch(lanApi(candidate, "info"), {}, 1500);
+                if (data?.product !== "cubiio2" || data.uid !== uid || data.via_ap === true || data.ip === last.net?.ap_ip) continue;
+                const endpoint = ipv4Address(data.lan_ip || data.ip);
+                if (!endpoint) continue;
+                const id = nextId(), raw = await localFetch("http://" + endpoint + "/api/command", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "text/plain",
+                    "X-C2-Uid": uid
+                  },
+                  body: "HELLO " + id
+                }, 2e3);
+                if (raw.id !== id || raw.uid !== uid || raw.error || !raw.net?.connected || raw.net.busy || expectedSsid && raw.net.ssid !== expectedSsid) continue;
+                validateStatus(raw);
+                const device = rememberDiscoveredLanDevice(data, endpoint);
+                ++wifi.epoch;
+                wifi.active = {
+                  ...device
+                };
+                if (hostedLanEndpoint) hostedLanEndpoint = endpoint;
+                hostedLanUid = uid;
+                byId("c2-transport").value = "wifi";
+                lanHandoff = null;
+                const result = accept(raw, "wifi");
+                setMessage(() => ui("wifiAutoLanConnected") + " " + endpoint);
+                return result;
+              } catch (error) {
+                if (!lanHandoff) throw error;
+              }
+            }
+            await delay(500);
+          } while (performance.now() < deadline);
+          throw makeUiError(() => ui("wifiAutoLanFailed") + (lanIp ? " http://" + lanIp + "/app/" : ""));
+        }
+        function wifiSetupTransport() {
+          return selectedTransport() === "wifi" && wifi.active ? "wifi" : usb.link?.running ? "usb" : null;
+        }
+        function wifiSetupAllowed() {
+          const via = wifiSetupTransport();
+          return !!via && (via === "usb" || wifiReady() && wifi.info?.net?.setup_network === true);
+        }
+        function wifiHandoff(response) {
+          const ap = response?.net;
+          if (!ap?.ap_active) throw makeUiError(() => "WIFI_AP_FAILED");
+          if (lanDevices[wifi.active?.uid]) lanDevices[wifi.active.uid].online = false;
+          wifi.active = null;
+          wifi.info = null;
+          wifi.at = 0;
+          ++wifi.epoch;
+          setMessage(() => ui("wifiHandoff") + " " + ap.ap_ssid + " · http://" + (ap.ap_hostname || ap.ap_ip) + "/");
+        }
+        async function waitForWifi(timeout, requireConnected = false, via = wifiSetupTransport()) {
           const deadline = performance.now() + timeout;
           let status;
           do {
             await delay(350);
-            status = await request("STATUS", "usb");
+            try {
+              status = await request("STATUS", via, Math.max(500, Math.min(3e3, deadline - performance.now())));
+            } catch (error) {
+              if (via === "wifi" && /LAN_REPLY_TIMEOUT|WIFI_REPLY_TIMEOUT|Failed to fetch|NetworkError|Load failed/i.test(String(error?.message || error))) continue;
+              throw error;
+            }
             if (status?.net?.error) throw makeUiError(() => status.net.error);
             if (!status?.net?.busy && (!requireConnected || status.net.connected)) return status;
           } while (performance.now() < deadline);
           throw makeUiError(() => requireConnected ? "WIFI_CONNECT_TIMEOUT" : "WIFI_OPERATION_TIMEOUT");
         }
         async function scanWifi() {
-          if (!usb.link?.running || wifiBusy) return;
+          const via = wifiSetupTransport();
+          if (!wifiSetupAllowed() || wifiBusy) return;
           wifiBusy = true;
           busy = true;
           renderDevice();
           try {
-            await request("WF_SCAN", "usb");
-            const status = await waitForWifi(2e4);
+            await request("WF_SCAN", via);
+            const status = await waitForWifi(2e4, false, via);
             const count = Math.min(32, Math.max(0, Number(status?.net?.count) || 0));
             const rows = [];
             for (let index = 0; index < count; index += 1) {
-              const response = await request("WF_ITEM " + index, "usb");
+              const response = await request("WF_ITEM " + index, via);
               const item = response?.net?.item;
               if (!item || item.end) break;
               if (typeof item.ssid === "string") rows.push(item);
@@ -12766,7 +13423,8 @@ Cubiio2</textarea
           }
         }
         async function joinWifi() {
-          if (!usb.link?.running || wifiBusy) return;
+          const via = wifiSetupTransport();
+          if (!wifiSetupAllowed() || wifiBusy) return;
           const ssidHex = byId("c2-wifi-networks").value;
           if (!ssidHex || !wifiNetworks.some(item => item.ssid === ssidHex)) {
             setMessage(() => ui("請先掃描並選擇 SSID。"), true);
@@ -12777,10 +13435,18 @@ Cubiio2</textarea
           busy = true;
           renderDevice();
           try {
-            await request(`WF_JOIN ${ssidHex} ${password ? textHex(password) : "-"}`, "usb");
+            const response = await request(`WF_JOIN ${ssidHex} ${password ? textHex(password) : "-"}`, via);
+            if (via === "wifi" && response.net?.ap_auto_close) {
+              await autoReconnectLan(response, ssidHex);
+              return;
+            }
+            if (via === "wifi" && !response.net?.via_ap) {
+              wifiHandoff(response);
+              return;
+            }
             byId("c2-wifi-password").value = "";
-            const status = await waitForWifi(36e3, true);
-            setMessage(() => ui`Wi-Fi 已連線：${status.net.ip || hexText(ssidHex)}。`);
+            const status = await waitForWifi(45e3, true, via);
+            setMessage(() => ui("wifiLanJoined") + " " + (status.net.ip || hexText(ssidHex)) + (status.net.via_ap ? " · " + ui("wifiSwitchLan") : ""));
           } catch (error) {
             setMessage(() => errText(error), true);
           } finally {
@@ -12791,13 +13457,22 @@ Cubiio2</textarea
           }
         }
         async function reconnectWifi() {
-          if (!usb.link?.running || wifiBusy) return;
+          const via = wifiSetupTransport();
+          if (!wifiSetupAllowed() || wifiBusy) return;
           wifiBusy = true;
           busy = true;
           renderDevice();
           try {
-            await request("WF_RECONNECT", "usb");
-            const status = await waitForWifi(36e3, true);
+            const response = await request("WF_RECONNECT", via);
+            if (via === "wifi" && response.net?.ap_auto_close) {
+              await autoReconnectLan(response, response.net.saved || "");
+              return;
+            }
+            if (via === "wifi" && !response.net?.via_ap) {
+              wifiHandoff(response);
+              return;
+            }
+            const status = await waitForWifi(36e3, true, via);
             setMessage(() => ui`已使用儲存帳密重新連上 Wi-Fi：${status.net.ip || ui("已取得位址")}。`);
           } catch (error) {
             setMessage(() => errText(error), true);
@@ -12808,12 +13483,21 @@ Cubiio2</textarea
           }
         }
         async function forgetWifi() {
-          if (!usb.link?.running || wifiBusy) return;
+          const via = wifiSetupTransport();
+          if (!wifiSetupAllowed() || wifiBusy) return;
           wifiBusy = true;
           busy = true;
           renderDevice();
           try {
-            await request("WF_FORGET", "usb");
+            const response = await request("WF_FORGET", via);
+            wifiNetworks = [];
+            byId("c2-wifi-networks").replaceChildren();
+            byId("c2-wifi-password").value = "";
+            if (via === "wifi" && !response.net?.via_ap) {
+              wifiHandoff(response);
+              return;
+            }
+            if (via === "wifi") await waitForWifi(1e4, false, via);
             wifiNetworks = [];
             byId("c2-wifi-networks").replaceChildren();
             byId("c2-wifi-password").value = "";
@@ -12839,12 +13523,11 @@ Cubiio2</textarea
               return;
             }
             const data = await localFetch(lanApi(endpoint, "info"), {}, 4e3);
-            if (!target.isIp) verifySerialCode(data, serial);
+            if (/^[a-z0-9]{4}$/i.test(serial)) verifySerialCode(data, serial);
             const device = rememberDiscoveredLanDevice(data, endpoint);
             if (!device) throw makeUiError(() => "DEVICE_INFO");
             uid = device.uid;
             byId("c2-lan-devices").value = uid;
-            await discoverLanNeighbors(device).catch(() => 0);
           } catch (error) {
             setMessage(() => errText(error), true);
           } finally {
@@ -13080,8 +13763,35 @@ Cubiio2</textarea
         function log(message) {
           flashProgress(String(message), null);
         }
+        function sha256Fallback(bytes) {
+          const k = [ 1116352408, 1899447441, 3049323471, 3921009573, 961987163, 1508970993, 2453635748, 2870763221, 3624381080, 310598401, 607225278, 1426881987, 1925078388, 2162078206, 2614888103, 3248222580, 3835390401, 4022224774, 264347078, 604807628, 770255983, 1249150122, 1555081692, 1996064986, 2554220882, 2821834349, 2952996808, 3210313671, 3336571891, 3584528711, 113926993, 338241895, 666307205, 773529912, 1294757372, 1396182291, 1695183700, 1986661051, 2177026350, 2456956037, 2730485921, 2820302411, 3259730800, 3345764771, 3516065817, 3600352804, 4094571909, 275423344, 430227734, 506948616, 659060556, 883997877, 958139571, 1322822218, 1537002063, 1747873779, 1955562222, 2024104815, 2227730452, 2361852424, 2428436474, 2756734187, 3204031479, 3329325298 ];
+          const data = new Uint8Array(Math.ceil((bytes.length + 9) / 64) * 64), v = new DataView(data.buffer), w = new Uint32Array(64), h = new Uint32Array([ 1779033703, 3144134277, 1013904242, 2773480762, 1359893119, 2600822924, 528734635, 1541459225 ]), r = (n, b) => n >>> b | n << 32 - b;
+          data.set(bytes);
+          data[bytes.length] = 128;
+          v.setUint32(data.length - 8, Math.floor(bytes.length / 536870912));
+          v.setUint32(data.length - 4, bytes.length * 8);
+          for (let offset = 0; offset < data.length; offset += 64) {
+            for (let i = 0; i < 64; ++i) w[i] = i < 16 ? v.getUint32(offset + 4 * i) : w[i - 16] + (r(w[i - 15], 7) ^ r(w[i - 15], 18) ^ w[i - 15] >>> 3) + w[i - 7] + (r(w[i - 2], 17) ^ r(w[i - 2], 19) ^ w[i - 2] >>> 10);
+            let [a, b, c, d, e, f, g, q] = h;
+            for (let i = 0; i < 64; ++i) {
+              const t = q + (r(e, 6) ^ r(e, 11) ^ r(e, 25)) + (e & f ^ ~e & g) + k[i] + w[i], u = (r(a, 2) ^ r(a, 13) ^ r(a, 22)) + (a & b ^ a & c ^ b & c);
+              q = g;
+              g = f;
+              f = e;
+              e = d + t >>> 0;
+              d = c;
+              c = b;
+              b = a;
+              a = t + u >>> 0;
+            }
+            [ a, b, c, d, e, f, g, q ].forEach((n, i) => h[i] += n);
+          }
+          const out = new Uint8Array(32), view = new DataView(out.buffer);
+          h.forEach((n, i) => view.setUint32(i * 4, n));
+          return bytesToHex(out);
+        }
         async function sha256(bytes) {
-          return bytesToHex(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes)));
+          return typeof crypto !== "undefined" && crypto.subtle ? bytesToHex(new Uint8Array(await crypto.subtle.digest("SHA-256", bytes))) : sha256Fallback(bytes);
         }
         function partitionForApp(data, imageSize) {
           const b = typeof data === "string" ? Uint8Array.from(data, c => c.charCodeAt(0)) : new Uint8Array(data), v = new DataView(b.buffer, b.byteOffset, b.byteLength), apps = [];
@@ -13107,13 +13817,41 @@ Cubiio2</textarea
           };
         }
         function validateImage(bytes, tag) {
-          if (bytes.length < 48) throw Error("app 檔案太短。");
-          const v = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength), text = new TextDecoder("latin1").decode(bytes), match = text.match(/C2PROTO_(?:BUZZER_)?(\d+\.\d+(?:\.\d+)?)(?:_[A-Z0-9]+)?/);
-          if (bytes[0] !== 233 || v.getUint16(12, true) !== 0 || v.getUint32(32, true) !== 2882360370 || !match || tag && !text.includes(tag)) throw Error("請選 Cubiio2 原型的原始 ESP32 app.bin；檔頭或版本標記不符。");
-          return {
-            tag: tag || match[0],
-            version: match[1]
+          if (bytes.length < 288 || bytes.length > 4194304) throw Error("FIRMWARE_IMAGE_SIZE");
+          const v = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength), invalid = () => {
+            throw Error("FIRMWARE_APP_BIN_REQUIRED");
           };
+          if (bytes[0] !== 233 || bytes[1] < 1 || bytes[1] > 16 || v.getUint16(12, true) !== 0 || bytes[23] > 1) invalid();
+          let offset = 24, checksum = 239, mapped = false;
+          for (let i = 0; i < bytes[1]; ++i) {
+            if (offset + 8 > bytes.length) invalid();
+            const address = v.getUint32(offset, true), size = v.getUint32(offset + 4, true);
+            offset += 8;
+            if (size > 4194304 || offset + size > bytes.length) invalid();
+            if (address >= 1061158912 && address < 1065353216 || address >= 1074593792 && address < 1077936128) mapped = true;
+            for (let j = 0; j < size; ++j) checksum ^= bytes[offset + j];
+            offset += size;
+          }
+          const imageEnd = Math.ceil((offset + 1) / 16) * 16;
+          if (!mapped || imageEnd > bytes.length || bytes[imageEnd - 1] !== checksum || bytes.length !== imageEnd + (bytes[23] ? 32 : 0)) invalid();
+          const text = new TextDecoder("latin1").decode(bytes), match = text.match(/C2PROTO_(?:[A-Z0-9]+_)*(\d+\.\d+(?:\.\d+)?)(?:_[A-Z0-9]+)?/);
+          if (tag && !text.includes(tag)) invalid();
+          return {
+            tag: tag || match?.[0] || "",
+            version: match?.[1] || "legacy",
+            modern: Boolean(match),
+            hasDescriptor: v.getUint32(32, true) === 2882360370,
+            requiresGeneric: !/^C2PROTO_BUZZER_\d/.test(match?.[0] || ""),
+            imageEnd: imageEnd,
+            hashAppended: Boolean(bytes[23])
+          };
+        }
+        async function verifyImageIntegrity(bytes, meta = validateImage(bytes)) {
+          if (meta.hashAppended) {
+            const expected = bytesToHex(bytes.subarray(meta.imageEnd));
+            if (await sha256(bytes.subarray(0, meta.imageEnd)) !== expected) throw Error("FIRMWARE_IMAGE_HASH");
+          }
+          return meta;
         }
         async function loadFlashLibrary() {
           if (!window.Cubiio2FlashLibrary) throw Error("USB_FLASH_LIBRARY_MISSING");
@@ -13222,15 +13960,8 @@ Cubiio2</textarea
           if (file.size > 4194304) throw Error("FIRMWARE_IMAGE_SIZE");
           const bytes = new Uint8Array(await file.arrayBuffer());
           if (bytes.length < 288 || bytes.length > 4194304) throw Error("FIRMWARE_IMAGE_SIZE");
-          const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
-          if (bytes[1] < 1 || bytes[1] > 16 || view.getUint32(28, true) < 256) throw Error("FIRMWARE_APP_BIN_REQUIRED");
-          let meta;
-          try {
-            meta = validateImage(bytes);
-          } catch {
-            throw Error("FIRMWARE_APP_BIN_REQUIRED");
-          }
-          const build = meta.tag.match(/_(BUZZER_)?[0-9]+\.[0-9]+(?:\.[0-9]+)?(?:_([A-Z0-9]+))?$/)?.[2] || "";
+          const meta = await verifyImageIntegrity(bytes);
+          const build = meta.modern ? meta.tag.match(/_(BUZZER_)?[0-9]+\.[0-9]+(?:\.[0-9]+)?(?:_([A-Z0-9]+))?$/)?.[2] || "" : file.name.replace(/\.bin$/i, "").replace(/[^A-Za-z0-9_-]/g, "_").slice(0, 28);
           const crc = crc32(bytes), name = `Cubiio2_${meta.version}${build ? "_" + build : ""}_${crc.toString(16).padStart(8, "0")}.bin`;
           if ((new TextEncoder).encode(name).length > 64) throw Error("FIRMWARE_NAME_TOO_LONG");
           return {
@@ -13242,11 +13973,16 @@ Cubiio2</textarea
         }
         async function updateFirmware(file, onProgress = () => {}) {
           if (busy || uploadRunning) throw makeUiError(() => ui("請先完成目前操作。"));
-          if (!usb.link?.running || selectedTransport() !== "usb") throw makeUiError(() => ui("請先使用 USB 連線。"));
-          const current = await request("STATUS", "usb");
-          if (!current || current.gc?.busy || current.job?.busy || current.focus?.busy || [ "HOMING", "POSITIONING", "FOCUS_SETTLING", "MEMORY_WAIT", "ADMISSION_WAIT" ].includes(current.sys?.task_start)) throw makeUiError(() => ui("請先停止機器工作再更新。"));
-          const bytes = new Uint8Array(await file.arrayBuffer()), meta = validateImage(bytes);
-          const library = await loadFlashLibrary(), port = usb.link.port, expectedUid = current.uid;
+          const controlled = Boolean(usb.link?.running && selectedTransport() === "usb");
+          if (!controlled && wifiReady() && selectedTransport() === "wifi") throw makeUiError(() => ui("請先使用 USB 連線。"));
+          if (!controlled && !navigator.serial) throw makeUiError(() => ui("此瀏覽器不支援 USB 韌體相容模式。請在電腦使用支援 Web Serial 的瀏覽器。"));
+          const current = controlled ? await request("STATUS", "usb") : null;
+          if (current && (current.gc?.busy || current.job?.busy || current.focus?.busy || [ "HOMING", "POSITIONING", "FOCUS_SETTLING", "MEMORY_WAIT", "ADMISSION_WAIT" ].includes(current.sys?.task_start))) throw makeUiError(() => ui("請先停止機器工作再更新。"));
+          const bytes = new Uint8Array(await file.arrayBuffer()), meta = await verifyImageIntegrity(bytes);
+          if ((!controlled || !meta.modern) && !await window.Cubiio2Core.confirmAction(() => ui("相容更新：請確認機台已停止加工。將只寫入 app 分割區，保留 SD 與設定。原版韌體可能不支援新版通訊；之後請用 USB 相容模式升級返回。") + " · " + file.name, {
+            label: "確認更新"
+          })) throw makeUiError(() => ui("更新已取消。"));
+          const library = await loadFlashLibrary(), port = controlled ? usb.link.port : await navigator.serial.requestPort(), expectedUid = current?.uid;
           busy = true;
           firmwareActivity = {
             label: "韌體更新",
@@ -13257,14 +13993,24 @@ Cubiio2</textarea
           try {
             stage("檢查韌體 SHA-256", 5);
             log(await sha256(bytes));
-            await request("LOCK", "usb");
-            const old = usb.link;
-            usb.epoch++;
-            usb.link = null;
-            usb.info = null;
-            usb.at = -Infinity;
-            await old.close();
+            if (controlled) {
+              await request("LOCK", "usb");
+              const old = usb.link;
+              usb.epoch++;
+              usb.link = null;
+              usb.info = null;
+              usb.at = -Infinity;
+              await old.close();
+            }
             await writeFlash(library, port, bytes, false, () => {});
+            if (!meta.modern) {
+              stage("映像寫入與 MD5 驗證完成；原版韌體請使用 USB 相容模式重新升級。", 100);
+              return {
+                legacy: true,
+                protocolVerified: false,
+                fw: meta.version
+              };
+            }
             const link = new SerialLink;
             usb.link = link;
             await link.open(port);
@@ -13279,11 +14025,25 @@ Cubiio2</textarea
                 await delay(500);
               }
             }
-            if (lastError || !status) throw lastError || makeUiError(() => "UPDATE_VERIFY_FAILED");
-            if (status.uid !== expectedUid || status.fw !== meta.version || status.build !== meta.tag) throw makeUiError(() => "UPDATE_IDENTITY_OR_VERSION");
+            if (lastError || !status) {
+              await link.close();
+              usb.link = null;
+              usb.info = null;
+              usb.at = -Infinity;
+              stage("app 已寫入並完成 MD5 驗證，但未取得新版通訊回覆；請確認機台已啟動。", 100);
+              return {
+                protocolVerified: false,
+                legacy: !meta.modern,
+                fw: meta.version
+              };
+            }
+            if (expectedUid && status.uid !== expectedUid || status.fw !== meta.version || status.build !== meta.tag) throw makeUiError(() => "UPDATE_IDENTITY_OR_VERSION");
             await request("UNLOCK", "usb");
             stage("更新完成，機台與版本已驗證", 100);
-            return status;
+            return {
+              ...status,
+              protocolVerified: true
+            };
           } finally {
             busy = false;
             firmwareActivity = null;
@@ -13847,7 +14607,7 @@ Cubiio2</textarea
             if ((via === "wifi" ? wifi.active : usb.link) !== link || state.epoch !== epoch || state.info?.uid !== uid || state.info?.sys?.boot !== boot) throw Error("LINK_CHANGED");
           };
         }
-        async function transferFile(bytes, name, via, progress, target = uploadTarget(via)) {
+        async function transferFile(bytes, name, via, progress, target = uploadTarget(via), destination = sdUploadPath(name)) {
           const guard = () => {
             target();
             if (uploadCancelled) throw Error("UPLOAD_CANCELLED");
@@ -13861,7 +14621,7 @@ Cubiio2</textarea
           let began = false;
           try {
             guard();
-            const begin = await sendText("UP_BEGIN " + bytes.length + " " + crc32(bytes) + " @" + textHex("/" + name));
+            const begin = await sendText("UP_BEGIN " + bytes.length + " " + crc32(bytes) + " @" + textHex(destination));
             began = true;
             if (begin.received !== 0) throw makeUiError(() => ui("裝置未建立新的上傳工作。"));
             await c2TransferChunks(bytes, begin, {
@@ -13894,18 +14654,20 @@ Cubiio2</textarea
           }
         }
         async function* sdRootEntries(req) {
-          for (let index = 0; index <= 1e4; index++) {
-            const response = await req("FS_DIR " + textHex("/") + " " + index);
-            const file = response.fs;
-            if (!file || file.id !== response.id) throw makeUiError(() => ui("SD 目錄回覆無效。"));
-            if (file.end) return;
-            const name = hexText(file.path).split("/").pop();
-            if (!file.dir && safeSdName(name)) yield {
-              name: name,
-              size: Number(file.size) || 0
-            };
+          for (const directory of info()?.net?.sd_layout === 2 ? [ "/uploads2", "/" ] : [ "/" ]) {
+            for (let index = 0; index <= 1e4; index++) {
+              const response = await req("FS_DIR " + textHex(directory) + " " + index);
+              if (index === 1e4) throw makeUiError(() => ui("SD 檔案數超出清單上限。"));
+              const file = response.fs;
+              if (!file || file.id !== response.id) throw makeUiError(() => ui("SD 目錄回覆無效。"));
+              if (file.end) break;
+              const name = hexText(file.path).split("/").pop();
+              if (!file.dir && safeSdName(name)) yield {
+                name: (directory === "/" ? "" : "uploads2/") + name,
+                size: Number(file.size) || 0
+              };
+            }
           }
-          throw makeUiError(() => ui("SD 檔案數超出清單上限。"));
         }
         async function listSd(preferred) {
           if (sdListing || !fresh()) return;
@@ -13936,7 +14698,7 @@ Cubiio2</textarea
             }));
             const selected = entries.find(entry => entry.name.toLowerCase() === previous.toLowerCase());
             if (selected) select.value = selected.name; else if (entries.length) select.selectedIndex = 0;
-            setUiText(byId("c2-sd-info"), () => ui("SD 根目錄 · ") + entries.length + ui(" 個可用檔案"));
+            setUiText(byId("c2-sd-info"), () => ui(info()?.net?.sd_layout === 2 ? "sdFolders" : "SD 根目錄 · ") + entries.length + ui(" 個可用檔案"));
             activePreviewSource = "sd";
             seedBitmapOrigin();
             renderSdPreview();
@@ -14011,7 +14773,7 @@ Cubiio2</textarea
               channel: "device-check",
               onProgress: computeFeedback
             });
-            await transferFile(prepared.bytes, entry.name, via, () => {});
+            await transferFile(prepared.bytes, entry.name, via, () => {}, uploadTarget(via), "/" + entry.name);
             entry.size = prepared.bytes.length;
             uploadRunning = false;
             return await request("GCHECK @" + textHex("/" + entry.name), via);
@@ -14042,7 +14804,7 @@ Cubiio2</textarea
               byId("c2-upload-progress").style.width = (done / total * 100).toFixed(1) + "%";
               setUiText(byId("c2-file-info"), () => ui("已傳送 ") + done.toLocaleString() + " / " + total.toLocaleString() + " bytes · " + (rate / 1024).toFixed(0) + " KiB/s");
             });
-            const storedName = remoteName;
+            const storedName = sdUploadPath(remoteName).slice(1);
             const preview = localPreviewModel();
             let previewSaved = false;
             if (preview) {
@@ -14100,7 +14862,7 @@ Cubiio2</textarea
               target();
               return request(command, via);
             })) {
-              if (entry.name.toLowerCase() === name.toLowerCase()) {
+              if (entry.name.toLowerCase() === sdUploadPath(name).slice(1).toLowerCase()) {
                 const replace = await window.Cubiio2Core.confirmAction(() => ui("projectOverwriteSdFile") + " /" + entry.name);
                 return replace ? entry.name : null;
               }
@@ -14142,12 +14904,12 @@ Cubiio2</textarea
                   maxY: y + meta.height / 10
                 }
               };
-              sdPreviewCache.set(name, preview);
-              await saveLocalSdPreview(name, bytes.length, preview).catch(() => {});
+              sdPreviewCache.set(sdUploadPath(name).slice(1), preview);
+              await saveLocalSdPreview(sdUploadPath(name).slice(1), bytes.length, preview).catch(() => {});
             }
             uploadRunning = false;
             target();
-            openSdPanel(name);
+            openSdPanel(sdUploadPath(name).slice(1));
             setMessage(() => ui("projectUploadedToSd") + " /" + name);
             return true;
           } finally {
@@ -14303,7 +15065,7 @@ Cubiio2</textarea
           return typeof path === "string" && path.startsWith("/") && encoder.encode(path).length <= 128 && !/[\\:*?"<>|\x00-\x1f\x7f]/.test(path) && (path === "/" || path.slice(1).split("/").every(p => p && p !== "." && p !== ".." && encoder.encode(p).length <= 64));
         }
         function sdPathProtected(path) {
-          return /^\/ *web[ .]*(?:\/|$)/i.test(path) || path.split("/").some(p => /^(?:_sys|pref\.(?:cfg|tmp|bak)|config\.(?:sys|tmp|bak)|work\.(?:upload|backup))$/i.test(p));
+          return /^\/ *(?:web|sys2|_sys|LOG)[ .]*(?:\/|$)/i.test(path) || path.split("/").some(p => /^(?:_sys|pref\.(?:cfg|tmp|bak)|config\.(?:sys|tmp|bak)|work\.(?:upload|backup))$/i.test(p));
         }
         async function maintenanceList(path = "/") {
           if (!sdPathValid(path)) throw Error("FILE_PATH_INVALID");
@@ -14379,6 +15141,7 @@ Cubiio2</textarea
         }
         async function maintenanceClear(onProgress = () => {}) {
           const req = maintenanceSession();
+          if (info()?.net?.sd_layout !== 2) throw Error("SD_LAYOUT_UPDATE_REQUIRED");
           if (info()?.sys?.sd_clear !== 2) throw Error("SD_TOOLS_UPDATE_REQUIRED");
           busy = true;
           renderDevice();
@@ -14413,6 +15176,7 @@ Cubiio2</textarea
         async function maintenanceFirmwareUpload(file, onProgress = () => {}) {
           const prepared = await prepareSdFirmwareUpload(file), req = maintenanceSession();
           if (info()?.sys?.sd_update?.upload !== true) throw Error("SD_TOOLS_UPDATE_REQUIRED");
+          if (prepared.meta.requiresGeneric && info()?.sys?.sd_update?.generic_images !== true) throw Error("SD_LEGACY_UPDATE_REQUIRED");
           busy = true;
           renderDevice();
           let began = false;
@@ -14475,13 +15239,14 @@ Cubiio2</textarea
             renderDevice();
           }
         }
-        async function startSdUpdate(path) {
+        async function startSdUpdate(path, {legacy: legacy = false} = {}) {
           if (!sdPathValid(path) || !/^\/_fw\/[^/]+\.bin$/i.test(path)) throw Error("SD_UPDATE_APP_BIN_REQUIRED");
           const req = maintenanceSession();
           busy = true;
           renderDevice();
           try {
-            return await req("SDUPDATE @" + textHex(path));
+            if (legacy && info()?.sys?.sd_update?.legacy_ota !== true) throw Error("SD_LEGACY_UPDATE_REQUIRED");
+            return await req((legacy ? "SDUPDATE_LEGACY @" : "SDUPDATE @") + textHex(path));
           } finally {
             busy = false;
             renderDevice();
@@ -14644,6 +15409,7 @@ Cubiio2</textarea
           byId("c2-connect").disabled = busy || uploadRunning;
           byId("c2-choose-wifi").disabled = busy || uploadRunning || wifiOn || !byId("c2-lan-devices").value;
           byId("c2-refresh-lan").disabled = busy || uploadRunning;
+          byId("c2-find-ap").disabled = busy || uploadRunning;
           byId("c2-add-lan").disabled = busy || uploadRunning;
           byId("c2-choose-usb").disabled = busy || uploadRunning || usbOn || !navigator.serial || !isSecureContext;
           byId("c2-disconnect").disabled = busy || uploadRunning || !(wifi.active || usb.link?.running);
@@ -14735,8 +15501,8 @@ Cubiio2</textarea
           setUiText(byId("c2-run-file-label"), () => ui("開始"));
           byId("c2-bmp-offset-x").disabled = localType !== "bmp" || busy || uploadRunning;
           byId("c2-bmp-offset-y").disabled = localType !== "bmp" || busy || uploadRunning;
-          const wifiStatus = usb.info?.net;
-          const wifiControlsReady = usbOn && Boolean(usb.info) && !busy && !uploadRunning && !wifiBusy;
+          const wifiStatus = wifiSetupTransport() === "wifi" ? wifi.info?.net : usb.info?.net;
+          const wifiControlsReady = wifiSetupAllowed() && !busy && !uploadRunning && !wifiBusy && !machineBusy && !status?.locked;
           const wifiConnected = Boolean(wifiStatus?.connected);
           byId("c2-wifi-scan").disabled = !wifiControlsReady;
           byId("c2-wifi-reconnect").disabled = !wifiControlsReady;
@@ -14744,9 +15510,23 @@ Cubiio2</textarea
           byId("c2-wifi-password").disabled = !wifiControlsReady;
           byId("c2-wifi-join").disabled = !wifiControlsReady || !byId("c2-wifi-networks").value;
           byId("c2-wifi-forget").disabled = !wifiControlsReady;
-          setUiText(byId("c2-wifi-state"), () => wifiBusy ? ui("處理中") : wifiConnected ? ui("已連線") : usbOn ? ui("未連上 LAN") : ui("需要 USB"));
+          byId("c2-ap-start").disabled = !wifiControlsReady || !usbOn || wifiConnected;
+          byId("c2-ap-stop").disabled = !wifiControlsReady || !usbOn;
+          const ap = wifiStatus;
+          byId("c2-ap-info").textContent = ap?.ap_active ? ap.ap_ssid + " · " + ui("apOpen") + " · http://" + ap.ap_ip + "/" + (ap.ap_hostname ? " · http://" + ap.ap_hostname + "/" : "") : ui("apHelp");
+          setUiText(byId("c2-wifi-state"), () => wifiBusy ? ui("處理中") : wifiConnected ? ui("已連線") : wifiSetupAllowed() ? ui("未連上 LAN") : ui("wifiSetupConnect"));
+          const lanIp = wifiConnected ? ipv4Address(wifiStatus.ip) : "";
+          const movedLanPage = Boolean(lanIp && hostedLanPageEndpoint && hostedLanEndpoint !== hostedLanPageEndpoint);
+          byId("c2-lan-handoff").hidden = !(lanIp && wifiStatus?.ap_active) && !lanHandoff && !movedLanPage;
+          byId("c2-retry-lan").hidden = !lanHandoff;
+          byId("c2-retry-lan").disabled = busy || wifiBusy;
+          if (lanHandoff && !lanIp) setUiText(byId("c2-lan-handoff-info"), () => ui("wifiAutoLanFailed"));
+          if (lanIp && (wifiStatus?.ap_active || movedLanPage)) {
+            byId("c2-open-lan-page").setAttribute("href", "http://" + lanIp + "/app/");
+            setUiText(byId("c2-lan-handoff-info"), () => ui("wifiLanJoined") + " " + lanIp + " · " + ui(movedLanPage && !wifiStatus.ap_active ? "wifiLanNextOpen" : wifiStatus.ap_auto_close ? "wifiAutoLanWaiting" : wifiStatus.ap_manual === false ? "wifiSwitchLanAuto" : wifiStatus.ap_manual === true ? "wifiSwitchLanManual" : "wifiSwitchLan"));
+          } else byId("c2-open-lan-page").removeAttribute?.("href");
           byId("c2-wifi-state").dataset.tone = wifiConnected ? "good" : "";
-          setUiText(byId("c2-wifi-status"), () => wifiStatus ? `${wifiStatus.state || (wifiConnected ? "CONNECTED" : "IDLE")} · ${wifiStatus.ip || ui("尚無 IP")}${wifiStatus.hostname ? ` · ${wifiStatus.hostname}` : ""}${wifiStatus.error ? ` · ${wifiStatus.error}` : ""}` : ui("請先使用 USB 連接機器，再掃描 2.4 GHz Wi-Fi。"));
+          setUiText(byId("c2-wifi-status"), () => wifiStatus ? `${wifiStatus.state || (wifiConnected ? "CONNECTED" : "IDLE")} · ${wifiStatus.ip || ui("尚無 IP")}${wifiStatus.hostname ? ` · ${wifiStatus.hostname}` : ""}${wifiStatus.error ? ` · ${wifiStatus.error}` : ""}${wifiStatus.error && wifiStatus.disconnect_reason ? ` · ${ui("wifiReason")} ${wifiStatus.disconnect_reason}` : ""}` : ui("wifiSetupConnect"));
           const gcodeBusy = Boolean(status?.gc?.busy), gcodePaused = status?.gc?.state === "PAUSED";
           const thermalPaused = Boolean(status?.sys?.thermal_paused);
           setUiText(byId("c2-pause-label"), () => ui("暫停"));
@@ -14771,6 +15551,7 @@ Cubiio2</textarea
         }
         document.addEventListener("cubiio2-language-change", () => {
           renderDevice();
+          renderConnectionMethod();
           renderLanDevices();
           if (activePreviewSource === "local") renderLocalPreview(); else renderSdPreview();
         });
@@ -14861,7 +15642,12 @@ Cubiio2</textarea
         function renderConnectionMethod() {
           const method = byId("c2-connection-method").value;
           byId("c2-usb-settings").hidden = method !== "usb";
-          byId("c2-lan-settings").hidden = method !== "wifi";
+          byId("c2-lan-settings").hidden = ![ "wifi", "ap" ].includes(method);
+          byId("c2-ap-connect").hidden = method !== "ap";
+          byId("c2-refresh-lan").hidden = method === "ap";
+          byId("c2-lan-manual").hidden = method === "ap";
+          setUiText(byId("c2-lan-list-label"), () => method === "ap" ? ui("apMachine") : ui("同一 LAN 的 Cubiio2"));
+          renderLanDevices();
         }
         byId("c2-connection-method").addEventListener("change", () => {
           renderConnectionMethod();
@@ -14869,7 +15655,7 @@ Cubiio2</textarea
             renderLanDevices();
             const stored = Object.values(lanDevices).some(item => item && (item.hostname || item.ip));
             refreshLanDevices({
-              discover: !stored
+              discover: false
             }).catch(error => setMessage(() => errText(error), true));
           }
         });
@@ -14882,8 +15668,52 @@ Cubiio2</textarea
         byId("c2-connection-dialog").addEventListener("click", event => {
           if (event.target === byId("c2-connection-dialog")) byId("c2-connection-dialog").close();
         });
+        byId("c2-retry-lan").addEventListener("click", async () => {
+          if (busy || !lanHandoff) return;
+          const saved = lanHandoff;
+          busy = wifiBusy = true;
+          renderDevice();
+          try {
+            await autoReconnectLan(saved.status, saved.ssid);
+          } catch (error) {
+            setMessage(() => errText(error), true);
+          } finally {
+            busy = wifiBusy = false;
+            renderDevice();
+          }
+        });
+        byId("c2-find-ap").addEventListener("click", async () => {
+          if (busy || uploadRunning) return;
+          busy = true;
+          renderDevice();
+          try {
+            for (const item of Object.values(lanDevices)) item.online = false;
+            const found = await probeLanEndpoint("192.168.4.1", 4e3);
+            byId("c2-lan-devices").value = found.uid;
+            setMessage(() => ui("已找到此裝置，請按「連線Cubiio2」。"));
+          } catch (error) {
+            setMessage(() => ui("apConnectHelp"), true);
+          } finally {
+            busy = false;
+            renderLanDevices();
+            renderDevice();
+          }
+        });
         byId("c2-choose-wifi").addEventListener("click", () => {
           connectWifi();
+        });
+        for (const [id, cmd] of [ [ "c2-ap-start", "WF_AP_START" ], [ "c2-ap-stop", "WF_AP_STOP" ] ]) byId(id).addEventListener("click", async () => {
+          if (busy) return;
+          busy = true;
+          renderDevice();
+          try {
+            await request(cmd, "usb");
+          } catch (error) {
+            setMessage(() => errText(error), true);
+          } finally {
+            busy = false;
+            renderDevice();
+          }
         });
         byId("c2-refresh-lan").addEventListener("click", () => refreshLanDevices({
           discover: true
@@ -15170,7 +16000,8 @@ Cubiio2</textarea
           layers: [],
           selectedId: null,
           nextId: 1,
-          activeTab: "upload",
+          activeTab: null,
+          brushActive: false,
           revision: 0,
           converted: null
         };
@@ -15258,7 +16089,16 @@ Cubiio2</textarea
           ctx.save();
           ctx.translate(layer.x, machineHeight - layer.y);
           ctx.rotate(layer.rotation * Math.PI / 180);
-          if (layer.type === "text") {
+          if (layer.type === "drawing") {
+            ctx.strokeStyle = "#000000";
+            ctx.lineWidth = .2;
+            ctx.lineCap = "round";
+            ctx.lineJoin = "round";
+            ctx.beginPath();
+            layer.points.forEach((p, i) => ctx[i ? "lineTo" : "moveTo"](p.x * layer.width / layer.baseWidth, p.y * layer.height / layer.baseHeight));
+            if (layer.closed) ctx.closePath();
+            ctx.stroke();
+          } else if (layer.type === "text") {
             ctx.scale(layer.width / layer.baseWidth, layer.height / layer.baseHeight);
             ctx.fillStyle = "#000000";
             ctx.font = textLayerFont(layer);
@@ -15348,6 +16188,14 @@ Cubiio2</textarea
           context.rect(0, 0, machine.width, machine.height);
           context.clip();
           if (showingConversion()) drawConvertedPreview(context, project.converted); else for (const layer of orderedLayers()) drawLayer(context, layer, machine.height);
+          if (brushStroke) {
+            context.beginPath();
+            context.strokeStyle = "#000";
+            context.lineWidth = .2;
+            context.lineCap = "round";
+            brushStroke.points.forEach((p, i) => context[i ? "lineTo" : "moveTo"](p.x, project.machine.height - p.y));
+            context.stroke();
+          }
           context.restore();
           const layer = selectedLayer();
           if (layer && !showingConversion()) {
@@ -15404,12 +16252,19 @@ Cubiio2</textarea
           renderProject();
         }
         function setProjectTab(name) {
+          if (name) {
+            finishBrush(true);
+            project.brushActive = false;
+            canvas.dataset.cursor = "";
+          }
+          $("project-close-tool").hidden = !name;
           const wasOutput = project.activeTab === "output";
           project.activeTab = name;
           document.querySelectorAll("[data-project-tab]").forEach(button => button.setAttribute("aria-selected", String(button.dataset.projectTab === name)));
           document.querySelectorAll("[data-project-panel]").forEach(panel => {
             panel.hidden = panel.dataset.projectPanel !== name;
           });
+          if (name === "text") populateLocalFonts();
           if (name === "output" && !wasOutput && !project.converted) scheduleConversion();
           renderProject();
         }
@@ -15590,6 +16445,22 @@ Cubiio2</textarea
           selectLayer(created.at(-1)?.id ?? null);
           return created;
         }
+        let localFontOptions = null;
+        async function populateLocalFonts() {
+          if (localFontOptions) return localFontOptions;
+          localFontOptions = (async () => {
+            const fonts = await window.Cubiio2Core.localFonts.load();
+            const select = $("project-font");
+            for (const item of fonts) {
+              const option = document.createElement("option");
+              option.value = item.family;
+              option.textContent = item.label;
+              select.append(option);
+            }
+            if (!fonts.length && !$("project-font-status").textContent) setUiText($("project-font-status"), () => ui("localFontEmpty"));
+          })();
+          return localFontOptions;
+        }
         let importedFontCount = 0;
         async function importProjectFont(event) {
           const input = event.currentTarget;
@@ -15658,11 +16529,35 @@ Cubiio2</textarea
           if (handles.scale.some(point => Math.hypot(position.x - point.x, position.y - point.y) <= 12)) return "scale";
           return null;
         }
+        let brushStroke = null;
+        function finishBrush(cancel = false) {
+          if (!brushStroke) return;
+          const geometry = !cancel && window.Cubiio2Core.drawing.stroke(brushStroke.points);
+          brushStroke = null;
+          if (geometry) {
+            const layer = {
+              id: project.nextId++,
+              type: "drawing",
+              nativeVector: "drawing",
+              name: ui("projectBrush"),
+              closed: false,
+              rotation: 0,
+              ...geometry
+            };
+            project.layers.push(layer);
+            markProjectChanged();
+            selectLayer(layer.id);
+            historyController?.commit();
+          }
+          renderProject();
+        }
         canvas.addEventListener("pointerdown", event => {
+          if (event.pointerType === "mouse" && event.button !== 0) return;
           const position = pointerPosition(event);
           pointers.set(event.pointerId, position);
           canvas.setPointerCapture(event.pointerId);
           if (pointers.size === 2) {
+            finishBrush(true);
             const [a, b] = [ ...pointers.values() ];
             pinch = {
               distance: Math.max(1, Math.hypot(a.x - b.x, a.y - b.y)),
@@ -15673,6 +16568,17 @@ Cubiio2</textarea
               panY: view.panY
             };
             interaction = null;
+            return;
+          }
+          if (project.brushActive && pointers.size === 1) {
+            const world = screenToWorld(position.x, position.y);
+            if (world.x < 0 || world.y < 0 || world.x > project.machine.width || world.y > project.machine.height) return;
+            brushStroke = {
+              pointerId: event.pointerId,
+              points: [ world ]
+            };
+            interaction = null;
+            canvas.dataset.cursor = "crosshair";
             return;
           }
           if (showingConversion()) {
@@ -15736,6 +16642,14 @@ Cubiio2</textarea
             renderProject();
             return;
           }
+          if (brushStroke && brushStroke.pointerId === event.pointerId) {
+            const p = screenToWorld(position.x, position.y), last = brushStroke.points.at(-1);
+            if (brushStroke.points.length < 12e3 && Math.hypot(p.x - last.x, p.y - last.y) >= .15) {
+              brushStroke.points.push(p);
+              renderProject();
+            }
+            return;
+          }
           if (!interaction) return;
           const layer = selectedLayer();
           if (interaction.mode === "pan") {
@@ -15769,6 +16683,7 @@ Cubiio2</textarea
           renderProject();
         });
         function endPointer(event) {
+          if (brushStroke?.pointerId === event.pointerId) finishBrush(event.type === "pointercancel");
           pointers.delete(event.pointerId);
           if (pointers.size < 2) pinch = null;
           interaction = null;
@@ -15777,6 +16692,10 @@ Cubiio2</textarea
         }
         canvas.addEventListener("pointerup", endPointer);
         canvas.addEventListener("pointercancel", endPointer);
+        canvas.addEventListener("lostpointercapture", event => {
+          if (brushStroke?.pointerId === event.pointerId) finishBrush(true);
+          pointers.delete(event.pointerId);
+        });
         canvas.addEventListener("wheel", event => {
           event.preventDefault();
           const position = pointerPosition(event);
@@ -15964,7 +16883,7 @@ Cubiio2</textarea
           return output;
         }
         function isNativeVectorLayer(layer) {
-          return layer.type !== "text" && layer.nativeVector === "svg";
+          return layer.type !== "text" && [ "svg", "drawing" ].includes(layer.nativeVector);
         }
         function isRasterLayer(layer) {
           return !isNativeVectorLayer(layer);
@@ -16087,10 +17006,24 @@ Cubiio2</textarea
             host.remove();
           }
         }
+        function drawingLayerVectorPaths(layer, pxPerMm) {
+          const path = layer.points.map(p => {
+            const w = layerLocalToWorld(layer, p.x * layer.width / layer.baseWidth, p.y * layer.height / layer.baseHeight);
+            return {
+              x: w.x * pxPerMm,
+              y: (project.machine.height - w.y) * pxPerMm
+            };
+          });
+          if (layer.closed) path.push({
+            ...path[0]
+          });
+          path.closed = Boolean(layer.closed);
+          return [ path ];
+        }
         async function collectNativeVectorPaths(pxPerMm, options) {
           const paths = [];
           for (const layer of orderedLayers()) {
-            const layerPaths = layer.nativeVector === "svg" ? svgLayerVectorPaths(layer, pxPerMm, options) : [];
+            const layerPaths = layer.nativeVector === "drawing" ? drawingLayerVectorPaths(layer, pxPerMm) : layer.nativeVector === "svg" ? svgLayerVectorPaths(layer, pxPerMm, options) : [];
             for (const path of layerPaths) {
               path.layerId = layer.id;
               path.layerName = layer.name;
@@ -16387,7 +17320,7 @@ Cubiio2</textarea
             element.hidden = isVector && (!hasRaster || element.id === "project-centerline-width-row" && !centerlineEnabled);
           });
         }
-        document.querySelectorAll("[data-project-tab]").forEach(button => button.addEventListener("click", () => setProjectTab(button.dataset.projectTab)));
+        document.querySelectorAll("[data-project-tab]").forEach(button => button.addEventListener("click", () => setProjectTab(project.activeTab === button.dataset.projectTab ? null : button.dataset.projectTab)));
         function syncProjectMachine() {
           const status = window.Cubiio2Device?.status?.(), snapshot = window.Cubiio2Device?.snapshot?.();
           const name = status?.ready && status?.connected && snapshot?.model === "PL-02B" ? "A3" : "A4";
@@ -16404,6 +17337,60 @@ Cubiio2</textarea
         document.addEventListener("cubiio2-device-status", syncProjectMachine);
         document.addEventListener("cubiio2-machine-change", syncProjectMachine);
         $("project-reset-view")?.addEventListener("click", resetProjectView);
+        $("project-close-tool").addEventListener("click", () => {
+          const name = project.activeTab;
+          setProjectTab(null);
+          document.querySelector('[data-project-tab="' + name + '"]')?.focus();
+        });
+        document.addEventListener("keydown", event => {
+          if (event.key === "Escape") {
+            finishBrush(true);
+            project.brushActive = false;
+            setProjectTab(null);
+            canvas.dataset.cursor = "";
+          }
+        });
+        $("project-shape-kind").addEventListener("change", () => {
+          $("project-shape-sides-row").hidden = $("project-shape-kind").value !== "polygon";
+        });
+        $("project-add-shape").addEventListener("click", () => {
+          try {
+            const kind = $("project-shape-kind").value, width = Number($("project-shape-width").value), height = Number($("project-shape-height").value);
+            const points = window.Cubiio2Core.drawing.shape(kind, width, height, Number($("project-shape-sides").value));
+            const layer = {
+              id: project.nextId++,
+              type: "drawing",
+              name: ui(kind === "ellipse" ? "shapeEllipse" : kind === "polygon" ? "shapePolygon" : "shapeRectangle"),
+              nativeVector: "drawing",
+              points: points,
+              closed: true,
+              x: project.machine.width / 2,
+              y: project.machine.height / 2,
+              width: width,
+              height: height,
+              baseWidth: width,
+              baseHeight: height,
+              rotation: 0
+            };
+            project.layers.push(layer);
+            markProjectChanged();
+            selectLayer(layer.id, true);
+          } catch (error) {
+            setUiText($("project-live-status"), () => ui("shapeInvalid"));
+          }
+        });
+        $("project-brush-activate").addEventListener("click", () => {
+          setProjectTab(null);
+          project.brushActive = true;
+          canvas.dataset.cursor = "crosshair";
+          canvas.focus();
+          setUiText($("project-live-status"), () => ui("brushHelp"));
+        });
+        $("project-brush-finish").addEventListener("click", () => {
+          project.brushActive = false;
+          setProjectTab(null);
+          canvas.dataset.cursor = "";
+        });
         $("project-add-text").addEventListener("click", addTextLayer);
         $("project-import-font").addEventListener("change", importProjectFont);
         $("project-file-input").addEventListener("change", async () => {
@@ -17168,8 +18155,8 @@ Cubiio2</textarea
           return deviceStatus().ready && !state.busy && !snapshot?.locked && !snapshot?.gc?.busy && !snapshot?.job?.busy && !snapshot?.focus?.busy && !snapshot?.io?.busy && !snapshot?.net?.busy && !snapshot?.fs?.busy && ![ "CHECK_FILE", "CHECKED", "HOMING", "POSITIONING", "FOCUS_SETTLING", "MEMORY_WAIT", "ADMISSION_WAIT" ].includes(snapshot?.sys?.task_start) && ![ "CHECKING", "WRITING", "REBOOTING" ].includes(snapshot?.sys?.sd_update?.state);
         }
         function fileManagerStep() {
-          const ready = maintenanceReady(), selected = state.fileRows.find(row => row.path === state.fileSelected), canDelete = selected && !selected.dir && !/^\/ *web[ .]*(?:\/|$)/i.test(selected.path) && !selected.path.split("/").some(p => /^(?:_sys|pref\.(?:cfg|tmp|bak)|config\.(?:sys|tmp|bak)|work\.(?:upload|backup))$/i.test(p));
-          return `<div class="maintenance-step"><h3>${text("SD 卡檔案", "SD card files")}</h3><label class="field-label" for="maintenance-file-path">${text("資料夾路徑", "Folder path")}</label><input class="form-control" id="maintenance-file-path" value="${escapeHtml(state.filePath)}" ${state.busy ? "disabled" : ""}>\n          <div class="maintenance-actions"><button class="action-button" data-action="files-list" ${ready ? "" : "disabled"}>${text("讀取資料夾", "Read folder")}</button><button class="action-button" data-action="files-parent" ${ready && state.filePath !== "/" ? "" : "disabled"}>${text("上層資料夾", "Parent folder")}</button></div>\n          <label class="field-label mt-5" for="maintenance-files">${text("選擇檔案或資料夾", "Select file or folder")}</label><select class="form-control" id="maintenance-files" size="6" ${ready ? "" : "disabled"}>${state.fileRows.length ? state.fileRows.map(row => `<option value="${escapeHtml(row.path)}" ${row.path === state.fileSelected ? "selected" : ""}>${row.dir ? "▸ " : ""}${escapeHtml(row.path.split("/").at(-1))}${row.dir ? " /" : " · " + row.size.toLocaleString() + " bytes"}</option>`).join("") : `<option value="">${text("尚無檔案；請讀取資料夾。", "No files loaded. Read a folder.")}</option>`}</select>\n          <div class="maintenance-actions"><button class="action-button" data-action="files-open" ${ready && selected?.dir ? "" : "disabled"}>${text("開啟資料夾", "Open folder")}</button><button class="action-button" data-action="files-download" ${ready && selected && !selected.dir ? "" : "disabled"}>${text("下載檔案", "Download file")}</button><button class="action-button danger" data-action="files-delete" ${ready && canDelete ? "" : "disabled"}>${text("刪除檔案", "Delete file")}</button></div>\n          <div class="maintenance-actions"><button class="action-button danger" data-action="files-clear" ${ready ? "" : "disabled"}>${text("清除所有檔案", "Clear all files")}</button></div><p>${text("保留 pref.cfg 與目前的 events.log。韌體 1.8.5 起也保留 /web。", "Keeps pref.cfg and the current events.log. Firmware 1.8.5 or later also keeps /web.")}</p>\n          <div class="maintenance-actions"><button class="action-button" data-action="files-pref" ${ready ? "" : "disabled"}>${text("下載 pref.cfg", "Download pref.cfg")}</button><button class="action-button" data-action="files-log" ${ready ? "" : "disabled"}>${text("下載 log", "Download log")}</button><button class="action-button" data-action="files-logs" ${ready ? "" : "disabled"}>${text("查看歷史 log", "Browse log history")}</button></div>\n          </div>`;
+          const ready = maintenanceReady(), selected = state.fileRows.find(row => row.path === state.fileSelected), canDelete = selected && !selected.dir && !/^\/ *(?:web|sys2|_sys|LOG)[ .]*(?:\/|$)/i.test(selected.path) && !selected.path.split("/").some(p => /^(?:_sys|pref\.(?:cfg|tmp|bak)|config\.(?:sys|tmp|bak)|work\.(?:upload|backup))$/i.test(p));
+          return `<div class="maintenance-step"><h3>${text("SD 卡檔案", "SD card files")}</h3><label class="field-label" for="maintenance-file-path">${text("資料夾路徑", "Folder path")}</label><input class="form-control" id="maintenance-file-path" value="${escapeHtml(state.filePath)}" ${state.busy ? "disabled" : ""}>\n          <div class="maintenance-actions"><button class="action-button" data-action="files-list" ${ready ? "" : "disabled"}>${text("讀取資料夾", "Read folder")}</button><button class="action-button" data-action="files-parent" ${ready && state.filePath !== "/" ? "" : "disabled"}>${text("上層資料夾", "Parent folder")}</button></div>\n          <label class="field-label mt-5" for="maintenance-files">${text("選擇檔案或資料夾", "Select file or folder")}</label><select class="form-control" id="maintenance-files" size="6" ${ready ? "" : "disabled"}>${state.fileRows.length ? state.fileRows.map(row => `<option value="${escapeHtml(row.path)}" ${row.path === state.fileSelected ? "selected" : ""}>${row.dir ? "▸ " : ""}${escapeHtml(row.path.split("/").at(-1))}${row.dir ? " /" : " · " + row.size.toLocaleString() + " bytes"}</option>`).join("") : `<option value="">${text("尚無檔案；請讀取資料夾。", "No files loaded. Read a folder.")}</option>`}</select>\n          <div class="maintenance-actions"><button class="action-button" data-action="files-open" ${ready && selected?.dir ? "" : "disabled"}>${text("開啟資料夾", "Open folder")}</button><button class="action-button" data-action="files-download" ${ready && selected && !selected.dir ? "" : "disabled"}>${text("下載檔案", "Download file")}</button><button class="action-button danger" data-action="files-delete" ${ready && canDelete ? "" : "disabled"}>${text("刪除檔案", "Delete file")}</button></div>\n          <div class="maintenance-actions"><button class="action-button danger" data-action="files-clear" ${ready && window.Cubiio2Device?.snapshot?.()?.net?.sd_layout === 2 ? "" : "disabled"}>${text("清除新版加工檔", "Clear new jobs")}</button></div><p>${text("僅清除 /uploads2 內的新版加工檔；保留所有舊資料與新舊設定。", "Clears only new jobs in /uploads2. Keeps all legacy data and both generations of settings.")}</p>\n          <div class="maintenance-actions"><button class="action-button" data-action="files-pref" ${ready ? "" : "disabled"}>${text("下載 pref.cfg", "Download pref.cfg")}</button><button class="action-button" data-action="files-log" ${ready ? "" : "disabled"}>${text("下載 log", "Download log")}</button><button class="action-button" data-action="files-logs" ${ready ? "" : "disabled"}>${text("查看歷史 log", "Browse log history")}</button></div>\n          </div>`;
         }
         async function fileAction(action) {
           if (state.busy) return;
@@ -17181,13 +18168,13 @@ Cubiio2</textarea
               let path = byId("maintenance-file-path")?.value.trim() || state.filePath;
               if (action === "files-parent") path = state.filePath.slice(0, state.filePath.lastIndexOf("/")) || "/";
               if (action === "files-open") path = state.fileSelected;
-              if (action === "files-logs") path = "/LOG";
+              if (action === "files-logs") path = "/sys2/log";
               state.fileRows = await api.listFiles(path);
               state.filePath = path;
               state.fileSelected = state.fileRows[0]?.path || "";
               setStatus(() => text("資料夾已讀取。", "Folder loaded."));
             } else if (action === "files-clear") {
-              if (!await window.Cubiio2Core.confirmAction(() => text("將刪除 SD 卡所有其他檔案與資料夾，包含歷史 log 與韌體，保留原路徑的 pref.cfg 和 events.log。韌體 1.8.5 起也保留 /web，舊版會刪除 /web。確定清除？", "Clear the SD card, including old logs and firmware? Keeps pref.cfg and events.log at their original paths. Firmware 1.8.5 or later also keeps /web. Older firmware deletes /web."))) return;
+              if (!await window.Cubiio2Core.confirmAction(() => text("將刪除 /uploads2 內的新版加工檔。保留所有舊資料與新舊設定。確定清除？", "Delete new jobs in /uploads2? All legacy data and both generations of settings are preserved."))) return;
               const result = await api.clearFiles(progress => setStatus(() => text(`清除中：${progress.deleted || 0} 個檔案、${progress.dirs || 0} 個資料夾`, `Clearing: ${progress.deleted || 0} files, ${progress.dirs || 0} folders`)));
               state.filePath = "/";
               state.fileRows = await api.listFiles("/");
@@ -17204,7 +18191,7 @@ Cubiio2</textarea
               state.fileSelected = state.fileRows[0]?.path || "";
               setStatus(() => text("檔案已刪除。", "File deleted."));
             } else {
-              const path = action === "files-pref" ? "/_sys/_cfg/pref.cfg" : action === "files-log" ? "/LOG/events.log" : state.fileSelected;
+              const path = action === "files-pref" ? "/sys2/pref2.cfg" : action === "files-log" ? "/sys2/log/events.log" : state.fileSelected;
               if (!path) return;
               await api.downloadFile(path, percent => setStatus(() => text(`下載中 ${percent}%`, `Downloading ${percent}%`)));
               setStatus(() => text(`已下載 ${path}`, `Downloaded ${path}`));
@@ -17247,7 +18234,7 @@ Cubiio2</textarea
         function sdFirmwareStep() {
           const update = window.Cubiio2Device?.snapshot?.()?.sys?.sd_update, ready = maintenanceReady(), updating = [ "CHECKING", "WRITING", "REBOOTING" ].includes(update?.state), supported = update?.supported === true;
           const canUpload = ready && update?.upload === true, selected = state.firmwareRows.some(row => row.path === state.sdFirmwarePath);
-          return `<div class="maintenance-step"><h3>${text("上傳韌體至 SD 卡", "Upload firmware to SD card")}</h3>\n          <label class="field-label" for="maintenance-sd-upload">${text("選擇韌體 .bin", "Choose firmware .bin")}</label><input class="form-control" id="maintenance-sd-upload" type="file" accept=".bin" ${canUpload ? "" : "disabled"}>\n          <p id="maintenance-sd-upload-name">${state.sdUploadFile ? escapeHtml(state.sdUploadFile.name) : text("僅接受單一 app .bin；merged.bin 請用 USB。", "Single app .bin only. Use USB for merged.bin.")}</p>\n          <progress class="w-full" max="100" value="${state.sdUploadProgress || 0}" aria-label="${text("韌體上傳進度", "Firmware upload progress")}"></progress>\n          <div class="maintenance-actions"><button id="maintenance-sd-upload-button" class="action-button" data-action="firmware-sd-upload" ${canUpload && state.sdUploadFile ? "" : "disabled"}>${text("上傳韌體", "Upload firmware")}</button></div>\n          <h3 class="mt-6">${text("選擇 SD 韌體版本", "Select SD firmware version")}</h3><label class="field-label" for="maintenance-sd-firmware">${text("韌體版本", "Firmware version")}</label>\n          <select class="form-control" id="maintenance-sd-firmware" ${ready && !state.firmwareListBusy && state.firmwareRows.length ? "" : "disabled"}>${state.firmwareRows.length ? state.firmwareRows.map(row => `<option value="${escapeHtml(row.path)}" ${row.path === state.sdFirmwarePath ? "selected" : ""}>${escapeHtml(row.path.split("/").at(-1))}</option>`).join("") : `<option value="">${text("尚未上傳韌體", "No firmware uploaded")}</option>`}</select>\n          <div class="maintenance-actions"><button class="action-button" data-action="firmware-sd-refresh" ${ready && !state.firmwareListBusy ? "" : "disabled"}>${text("重新整理版本", "Refresh versions")}</button><button class="action-button primary" data-action="firmware-sd-start" ${ready && supported && selected ? "" : "disabled"}>${text("開始 SD 更新", "Start SD update")}</button></div>\n          <p>${supported ? text("驗證完成後機器會自動重新啟動；更新期間保持供電與 SD 卡插入。", "The machine restarts after verification. Keep power and the SD card connected.") : text("需先以 USB 完整安裝雙映像分割表，才可從 SD 更新。", "Install the dual-app partition layout by a full USB flash before using SD updates.")}${update?.upload === true ? "" : text("請先更新本版韌體以啟用自動上傳。", "Update the machine firmware to enable automatic uploads.")}</p>\n          <div class="maintenance-result">${escapeHtml(update?.state || "IDLE")}${update?.size ? " · " + Math.floor(update.read / update.size * 100) + "%" : ""}${update?.error ? " · " + escapeHtml(update.error) : ""}</div></div>`;
+          return `<div class="maintenance-step"><h3>${text("上傳韌體至 SD 卡", "Upload firmware to SD card")}</h3>\n          <label class="field-label" for="maintenance-sd-upload">${text("選擇韌體 .bin", "Choose firmware .bin")}</label><input class="form-control" id="maintenance-sd-upload" type="file" accept=".bin" ${canUpload ? "" : "disabled"}>\n          <p id="maintenance-sd-upload-name">${state.sdUploadFile ? escapeHtml(state.sdUploadFile.name) : text("僅接受單一 app .bin；merged.bin 請用 USB。", "Single app .bin only. Use USB for merged.bin.")}</p>\n          <progress class="w-full" max="100" value="${state.sdUploadProgress || 0}" aria-label="${text("韌體上傳進度", "Firmware upload progress")}"></progress>\n          <div class="maintenance-actions"><button id="maintenance-sd-upload-button" class="action-button" data-action="firmware-sd-upload" ${canUpload && state.sdUploadFile ? "" : "disabled"}>${text("上傳韌體", "Upload firmware")}</button></div>\n          <h3 class="mt-6">${text("選擇 SD 韌體版本", "Select SD firmware version")}</h3><label class="field-label" for="maintenance-sd-firmware">${text("韌體版本", "Firmware version")}</label>\n          <select class="form-control" id="maintenance-sd-firmware" ${ready && !state.firmwareListBusy && state.firmwareRows.length ? "" : "disabled"}>${state.firmwareRows.length ? state.firmwareRows.map(row => `<option value="${escapeHtml(row.path)}" ${row.path === state.sdFirmwarePath ? "selected" : ""}>${escapeHtml(row.path.split("/").at(-1))}</option>`).join("") : `<option value="">${text("尚未上傳韌體", "No firmware uploaded")}</option>`}</select>\n          <div class="maintenance-actions"><button class="action-button" data-action="firmware-sd-refresh" ${ready && !state.firmwareListBusy ? "" : "disabled"}>${text("重新整理版本", "Refresh versions")}</button><button class="action-button primary" data-action="firmware-sd-start" ${ready && supported && selected ? "" : "disabled"}>${text("一般 SD／OTA 更新", "Standard SD / OTA update")}</button><button class="action-button danger" data-action="firmware-sd-legacy" ${ready && supported && selected && update?.legacy_ota === true ? "" : "disabled"}>${text("SD／OTA 降回原版", "Restore original via SD / OTA")}</button></div>\n          <p>${supported ? text("驗證完成後機器會自動重新啟動；更新期間保持供電與 SD 卡插入。", "The machine restarts after verification. Keep power and the SD card connected.") : text("需先以 USB 完整安裝雙映像分割表，才可從 SD 更新。", "Install the dual-app partition layout by a full USB flash before using SD updates.")}${update?.upload === true ? "" : text("請先更新本版韌體以啟用自動上傳。", "Update the machine firmware to enable automatic uploads.")}</p>\n          <div class="maintenance-result">${escapeHtml(update?.state || "IDLE")}${update?.size ? " · " + Math.floor(update.read / update.size * 100) + "%" : ""}${update?.error ? " · " + escapeHtml(update.error) : ""}</div></div>`;
         }
         async function refreshSdFirmware(preferred = "") {
           if (state.busy || state.firmwareListBusy || !deviceStatus().ready) return;
@@ -17288,14 +18275,19 @@ Cubiio2</textarea
           }
           if (stored) await refreshSdFirmware(stored.path); else renderStep();
         }
-        async function startSdFirmware() {
+        async function startSdFirmware(legacy = false) {
           if (firmwareMethodForConnection() !== "sd") return;
           const path = state.sdFirmwarePath;
           if (!state.firmwareRows.some(row => row.path === path)) return;
+          if (legacy && !await window.Cubiio2Core.confirmAction(() => text("將透過 SD／OTA 安裝選定的原版韌體，保留新舊設定與所有 SD 資料。驗證通過後以原版相容啟動方式重新開機；後續升級可用原版 OTA。確定降版？", "Install the selected original firmware via SD / OTA? Settings and SD files are preserved. After verification it boots in legacy-compatible mode. Future upgrades can use the original OTA."), {
+            label: "確認更新"
+          })) return;
           state.busy = true;
           renderStep();
           try {
-            await window.Cubiio2Device.startSdUpdate(path);
+            await window.Cubiio2Device.startSdUpdate(path, {
+              legacy: legacy
+            });
             setStatus(() => text("機器已開始 SD 更新；完成後會自動重新啟動。", "The machine started its SD update and will restart when complete."));
           } catch (error) {
             setStatus(() => window.Cubiio2Device?.errorText?.(error) || error?.message || String(error));
@@ -17307,19 +18299,20 @@ Cubiio2</textarea
         function firmwareMethodForConnection() {
           const connection = deviceStatus();
           if (state.busy && state.firmwareBoundTransport) return state.firmwareBoundTransport;
-          return connection.transport === "usb" && connection.usb ? "usb" : connection.transport === "wifi" && connection.wifi ? "sd" : null;
+          if (state.firmwareOverride === "sd" && (connection.usb || connection.wifi)) return "sd";
+          return connection.transport === "usb" && connection.usb ? "usb" : connection.transport === "wifi" && connection.wifi ? "sd" : navigator.serial ? "usb" : null;
         }
         function firmwareStep() {
           const method = firmwareMethodForConnection();
           if (!method) return '<div class="maintenance-step"><p>' + window.Cubiio2Core.text("connectFirmware") + "</p></div>";
           state.firmwareMethod = method;
-          const label = '<p class="field-help">' + window.Cubiio2Core.text(method === "usb" ? "usbBound" : "lanBound") + "</p>";
+          const label = '<p class="field-help">' + window.Cubiio2Core.text(method === "usb" ? deviceStatus().usb ? "usbBound" : "usbCompatibilityHint" : deviceStatus().transport === "usb" ? "sdViaUsbHint" : "lanBound") + "</p>";
           return label + (method === "usb" ? usbFirmwareStep() : sdFirmwareStep());
         }
         function usbFirmwareStep() {
           const status = deviceStatus();
-          if (state.completed) return `<div class="maintenance-step"><h3>${text("韌體更新完成", "Firmware updated")}</h3><p>${text("已驗證機台身分與韌體版本，USB 已重新連線。", "Machine identity and firmware version verified. USB is reconnected.")}</p><button class="action-button primary" data-action="finish">${text("完成", "Done")}</button></div>`;
-          if (state.step === 1) return `<div class="maintenance-step"><h3>${text("USB 連線", "Connect USB")}</h3><div class="maintenance-result">${status.usb ? text("USB 已連線", "USB connected") : text("請將 Cubiio2 接上 USB", "Connect Cubiio2 by USB")}</div><div class="maintenance-actions"><button class="action-button primary" data-action="firmware-usb">${status.usb ? text("下一步", "Next") : text("USB 連線", "Connect USB")}</button></div></div>`;
+          if (state.completed) return `<div class="maintenance-step"><h3>${text("韌體更新完成", "Firmware updated")}</h3><p>${state.firmwareLegacy ? text("app 已寫入並完成 MD5 驗證。原版韌體不支援新版通訊時，可用 USB 相容模式重新升級。", "The app was written and MD5 verified. Use USB compatibility mode to upgrade again if legacy firmware lacks the new protocol.") : text("已驗證機台身分與韌體版本，USB 已重新連線。", "Machine identity and firmware version verified. USB is reconnected.")}</p><button class="action-button primary" data-action="finish">${text("完成", "Done")}</button></div>`;
+          if (state.step === 1) return `<div class="maintenance-step"><h3>${text("USB 連線", "Connect USB")}</h3><div class="maintenance-result">${status.usb ? text("USB 已連線", "USB connected") : text("請將 Cubiio2 接上 USB", "Connect Cubiio2 by USB")}</div><div class="maintenance-actions"><button class="action-button primary" data-action="firmware-usb">${status.usb ? text("下一步", "Next") : text("USB 連線", "Connect USB")}</button>${!status.usb ? '<button class="action-button" data-action="firmware-legacy-usb">' + text("原版韌體／USB 相容模式", "Legacy firmware / USB compatibility mode") + "</button>" : ""}</div><p class="field-help">${text("原版韌體不需先建立新版通訊連線；相容模式會在寫入前選取 USB 並檢查晶片與分割表。", "Legacy firmware needs no new-protocol connection. Compatibility mode selects USB and checks the chip and partitions before writing.")}</p>${status.ready && window.Cubiio2Device?.snapshot?.()?.sys?.sd_update?.supported ? '<button class="action-button mt-4" data-action="firmware-sd-mode">' + text("改用 SD／OTA 更新或降回原版", "Use SD / OTA update or restore original") + "</button>" : ""}</div>`;
           if (state.step === 2) return `<div class="maintenance-step"><h3>${text("選擇韌體檔案", "Select firmware file")}</h3><label class="field-label" for="maintenance-firmware-file">Cubiio2 app.bin</label><input id="maintenance-firmware-file" type="file" accept=".bin"><p>${text("選擇編譯匯出的 app.bin。", "Choose the exported app.bin.")}</p></div>`;
           return `<div class="maintenance-step"><h3>${text("開始更新", "Start update")}</h3><div class="maintenance-result">${String(state.firmwareFile?.name || "").replace(/[&<>"']/g, c => ({
             "&": "&amp;",
@@ -17327,7 +18320,7 @@ Cubiio2</textarea
             ">": "&gt;",
             '"': "&quot;",
             "'": "&#39;"
-          }[c]))}</div><p>${text("更新期間請保持 USB 連線與電源。", "Keep USB and power connected during the update.")}</p><progress id="maintenance-firmware-progress" aria-label="${text("韌體更新進度", "Firmware update progress")}" class="w-full" max="100" value="${state.firmwareProgress || 0}"></progress><div id="maintenance-firmware-stage">${state.firmwareProgress || 0}%</div><div class="maintenance-actions"><button class="action-button primary" data-action="firmware-update" ${state.busy || !status.usb || !state.firmwareFile ? "disabled" : ""}>${state.busy ? text("更新中…", "Updating…") : text("開始更新", "Start update")}</button></div></div>`;
+          }[c]))}</div><p>${text("更新期間請保持 USB 連線與電源。", "Keep USB and power connected during the update.")}</p><progress id="maintenance-firmware-progress" aria-label="${text("韌體更新進度", "Firmware update progress")}" class="w-full" max="100" value="${state.firmwareProgress || 0}"></progress><div id="maintenance-firmware-stage">${state.firmwareProgress || 0}%</div><div class="maintenance-actions"><button class="action-button primary" data-action="firmware-update" ${state.busy || !state.firmwareFile || !navigator.serial ? "disabled" : ""}>${state.busy ? text("更新中…", "Updating…") : text("開始更新", "Start update")}</button></div></div>`;
         }
         async function startFirmwareUpdate() {
           if (firmwareMethodForConnection() !== "usb") return;
@@ -17336,12 +18329,13 @@ Cubiio2</textarea
           state.firmwareProgress = 0;
           renderStep();
           try {
-            await window.Cubiio2Device.updateFirmware(state.firmwareFile, (label, percent) => {
+            const result = await window.Cubiio2Device.updateFirmware(state.firmwareFile, (label, percent) => {
               if (percent != null) state.firmwareProgress = percent;
               const progress = byId("maintenance-firmware-progress"), stage = byId("maintenance-firmware-stage");
               if (progress) progress.value = state.firmwareProgress;
               if (stage) stage.textContent = label + " · " + state.firmwareProgress + "%";
             });
+            state.firmwareLegacy = result?.protocolVerified === false;
             state.completed = true;
             setStatus(() => text("韌體更新與回讀驗證完成。", "Firmware update and verification complete."));
           } catch (error) {
@@ -17406,6 +18400,7 @@ Cubiio2</textarea
             engineeringStatus: snapshot || null,
             engineeringBmp: loadEngineeringBmp()
           });
+          state.firmwareOverride = null;
           state.firmwareBoundTransport = null;
           if (flow === "firmware") state.firmwareMethod = firmwareMethodForConnection() || "none";
           byId("maintenance-menu").hidden = true;
@@ -17518,6 +18513,18 @@ Cubiio2</textarea
             await startSdFirmware();
             return;
           }
+          if (target.dataset.action === "firmware-sd-legacy") {
+            await startSdFirmware(true);
+            return;
+          }
+          if (target.dataset.action === "firmware-sd-mode") {
+            state.firmwareOverride = "sd";
+            state.firmwareMethod = "sd";
+            state.step = 1;
+            renderStep();
+            await refreshSdFirmware();
+            return;
+          }
           switch (target.dataset.action) {
            case "zero-laser":
             await startZeroCalibration();
@@ -17604,6 +18611,10 @@ Cubiio2</textarea
             }
             renderStep();
             return;
+
+           case "firmware-legacy-usb":
+            state.step = 2;
+            break;
 
            case "firmware-usb":
             if (!deviceStatus().usb) await window.Cubiio2Device.connectUsb();
