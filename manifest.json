@@ -1,0 +1,42 @@
+{
+  "product": "Cubiio2",
+  "version": "2.0.2",
+  "build_tag": "C2PROTO_BUZZER_2.0.2_DEVICE",
+  "source_commit": "926bc033d8f2b17b1e33345d050cfdccda0cc291",
+  "source_branch": "feat/2.0.2-device-process-settings",
+  "built_at_utc": "2026-11-27T08:44:59.359Z",
+  "target": "original dual-core ESP32 / PL-02 and PL-02B",
+  "core": {
+    "id": "esp32:esp32",
+    "version": "3.3.7"
+  },
+  "fqbn": "esp32:esp32:esp32:FlashSize=4M,PartitionScheme=min_spiffs,PSRAM=disabled,LoopCore=0,EventsCore=0",
+  "cpp_flags": "-Werror=format",
+  "image_type": "single application image; not merged",
+  "app_partition_bytes": 1966080,
+  "flash_used_bytes": 1556653,
+  "static_ram_bytes": 109708,
+  "checks": {
+    "web_generated": "passed",
+    "image_checksum": "passed",
+    "appended_sha256": "passed",
+    "esp32_app_descriptor": "passed",
+    "partition_fit": "passed",
+    "embedded_webapp_exact_match": "passed",
+    "source_ci": "https://github.com/pfsin555/Cubiio2_FW/actions/runs/45967988888",
+    "browser": "not run: automatic review blocked localhost browser access because workspace credits were exhausted",
+    "hardware": "not flashed or tested"
+  },
+  "files": [
+    {
+      "name": "Cubiio2Prototype.ino.bin",
+      "bytes": 1556800,
+      "sha256": "40a3f8ccda6601694fe34ada1501229819d722e92aebd842d72b2ef3a25e1336"
+    },
+    {
+      "name": "Cubiio2_WebApp.html",
+      "bytes": 795172,
+      "sha256": "6a73f3f371c5b56117e8bcbc53cd3578d1f1140dfce27a18d01c3dd3e129c786"
+    }
+  ]
+}
